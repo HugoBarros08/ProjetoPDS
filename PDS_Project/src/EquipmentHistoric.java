@@ -6,7 +6,7 @@ public class EquipmentHistoric
 	private String log;
 	private Date date;
 	
-	public void equipmentHistoric(int id, String log, Date date)
+	public EquipmentHistoric(int id, String log, Date date)
 	{
 		this.historicId = id;
 		this.log = log;

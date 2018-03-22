@@ -5,7 +5,7 @@ public class EquipmentCharacteristic
 	private String name;
 	private String value;
 	
-	public void equipmentCharacteristic(int id, String name, String value)
+	public EquipmentCharacteristic(int id, String name, String value)
 	{
 		this.characteristicId = id;
 		this.name = name;
