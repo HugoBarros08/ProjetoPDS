@@ -2,18 +2,18 @@ import java.util.ArrayList;
 
 public class Sector {
 	private String name;
-	private ArrayList<Equipments> equipments;
+	private ArrayList<Equipment> equipment;
 	private ArrayList<User> leader;
 	
-	public Sector(String name, ArrayList<Equipments> equipments, ArrayList<User> leader) {
+	public Sector(String name, ArrayList<Equipment> equipment, ArrayList<User> leader) {
 		this.name = name;
-		this.equipments = equipments;
+		this.equipment = equipment;
 		this.leader = leader;
 	}
 	
 	public Sector(String name) {
 		this.name = name;
-		this.equipments = new ArrayList<Equipments>();
+		this.equipment = new ArrayList<Equipment>();
 		this.leader = new ArrayList<User>();
 	}
 	
@@ -25,8 +25,13 @@ public class Sector {
 		return name;
 	}
 
-	public ArrayList<Equipments> getEquipments(){
-		return equipments;
+	public ArrayList<Equipment> getEquipments(){
+		return equipment;
 	}
 		
+
+	public void notfy() 
+	{
+		
+	}
 }

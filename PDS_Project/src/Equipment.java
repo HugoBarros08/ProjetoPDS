@@ -1,34 +1,40 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Equipments {
+public class Equipment {
 	
 	private int equipmentId;
 	private String serialNumber;
 	private String tumberNumber;
-	private Date productDate;
+	private Date registrationDate;
 	private Date lastMaintenance;
+	private String status;
 	private ArrayList<EquipmentCharacteristic> characteristics;
 	private ArrayList<EquipmentHistoric> historic;
 	
-	public Equipments(int id, String serial, String tumber, Date product, Date lastMaintenance)
+	public static final String green = "green";
+	public static final String orange = "orange";
+	public static final String red = "red";
+	
+	public Equipment(int id, String serial, String tumber, Date registration, Date lastMaintenance)
 	{
 		this.equipmentId = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
-		this.productDate = product;
+		this.registrationDate = registration;
 		this.lastMaintenance = lastMaintenance;
+		this.status = green;
 		
 		this.characteristics = new ArrayList<EquipmentCharacteristic>();
 		this.historic = new ArrayList<EquipmentHistoric>();
 	}
 
-	public Equipments(int id, String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
+	public Equipment(int id, String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
 	{
 		this.equipmentId = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
-		this.productDate = product;
+		this.registrationDate = product;
 		this.lastMaintenance = lastMaintenance;
 		this.characteristics = characteristics;
 		this.historic = historic;
@@ -62,6 +68,36 @@ public class Equipments {
 	public void setTumberNumber(String number)
 	{
 		this.tumberNumber = number;
+	}
+	
+	public Date getRegistrationDate()
+	{
+		return this.registrationDate;
+	}
+	
+	public void setRegistrationDate(Date registration)
+	{
+		this.registrationDate = registration;
+	}
+	
+	public Date getLastMaintenance()
+	{
+		return this.lastMaintenance;
+	}
+	
+	public void setLastMaintenance(Date lastMaintenance)
+	{
+		this.lastMaintenance = lastMaintenance;
+	}
+	
+	public String getStatus()
+	{
+		return this.status;
+	}
+	
+	public void setStatus(String status)
+	{
+		this.status = status;
 	}
 	
 	public ArrayList<EquipmentCharacteristic> getCharacteristics()

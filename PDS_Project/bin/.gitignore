@@ -1,6 +1,4 @@
-/EquipmentCharacteristic.class
-/EquipmentHistoric.class
-/Equipments.class
-/User.class
-/UserType.class
-/Sector.class
+/Equipment.class
+/SectorKeeper.class
+/Administrator.class
+/exceptions/
