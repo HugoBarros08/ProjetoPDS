@@ -11,7 +11,7 @@ public class SectorKeeper
 		sectors = new ArrayList<Sector>();
 	}
 	
-	public void createSector(String name) throws ExistentSectorException
+	public void createSector(int id, String name) throws ExistentSectorException
 	{
 		for(int index = 0; index < sectors.size(); index++)
 		{
@@ -21,7 +21,7 @@ public class SectorKeeper
 			}
 		}
 		
-		Sector newSector = new Sector(name);
+		Sector newSector = new Sector(id, name);
 		
 		sectors.add(newSector);
 	}

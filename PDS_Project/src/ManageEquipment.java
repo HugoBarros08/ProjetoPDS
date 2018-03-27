@@ -11,9 +11,9 @@ public class ManageEquipment
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(serial))
+			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(tumber))
 			{
-				throw new ExistentEquipmentException("Já existe uma máquina registrada com esse número de série");
+				throw new ExistentEquipmentException("Já existe uma máquina registrada com esse número de tombo");
 			}
 		}
 		
@@ -24,11 +24,11 @@ public class ManageEquipment
 		equipments.add(newEquipment);
 	}
 	
-	public void deleteEquipment(ArrayList<Equipment> equipments, String serial) throws InexistentEquipmentException
+	public void deleteEquipment(ArrayList<Equipment> equipments, int id) throws InexistentEquipmentException
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(serial))
+			if(equipments.get(index).getEquipmentId() == id)
 			{
 				equipments.remove(index);
 				return;
@@ -38,18 +38,14 @@ public class ManageEquipment
 		throw new InexistentEquipmentException("Equipamento inexistente");
 	}
 	
-	public void updateEquipment(ArrayList<Equipment> equipments, String serial, int newId, String newSerial, String newTumber, Date newRegistrationDate, Date newLastMaintenance, String newStatus)
+	public void updateEquipment(ArrayList<Equipment> equipments, int id, String newSerial, String newTumber, Date newRegistrationDate, Date newLastMaintenance, String newStatus)
 	throws InexistentEquipmentException, ExistentEquipmentException
 	{
 		Equipment foundOne = null;
 		
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == newId)
-			{
-				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo id");	
-			
-			} else if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial)){
+			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial)){
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo serial");
 			
@@ -57,7 +53,7 @@ public class ManageEquipment
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo tombo");
 			
-			} else if(equipments.get(index).getSerialNumber().equalsIgnoreCase(serial)){
+			} else if(equipments.get(index).getEquipmentId() == id){
 				
 				foundOne = equipments.get(index);
 			}
@@ -66,7 +62,6 @@ public class ManageEquipment
 		
 		if(foundOne != null)
 		{
-			foundOne.setEquipmentId(newId);
 			foundOne.setSerialNumber(newSerial);
 			foundOne.setTumberNumber(newTumber);
 			foundOne.setRegistrationDate(newRegistrationDate);
@@ -79,11 +74,11 @@ public class ManageEquipment
 		}
 	}
 	
-	public Equipment searchEquipment(ArrayList<Equipment> equipments, String serial) throws InexistentEquipmentException
+	public Equipment searchEquipment(ArrayList<Equipment> equipments, int id) throws InexistentEquipmentException
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(serial))
+			if(equipments.get(index).getEquipmentId() == id)
 			{
 				return equipments.get(index);
 			}
@@ -92,5 +87,18 @@ public class ManageEquipment
 		throw new InexistentEquipmentException("Equipamento inexistente");
 	}
 	
-	
+	public void createEquipmentHistoric(ArrayList<Equipment> equipments, int equipmentId, int historicId, String historicLog, Date historicDate)
+	throws InexistentEquipmentException
+	{
+		for(int index = 0; index < equipments.size(); index++)
+		{
+			if(equipments.get(index).getEquipmentId() == equipmentId)
+			{
+				EquipmentHistoric maintenanceHistoric = new EquipmentHistoric(historicId, historicLog, historicDate);
+				equipments.get(index).getHistoric().add(maintenanceHistoric);
+			}
+		}
+		
+		throw new InexistentEquipmentException("Equipamento inexistente");
+	}	
 }

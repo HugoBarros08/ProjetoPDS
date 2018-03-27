@@ -1,7 +1,7 @@
 package exceptions;
 
-public class ExistentSectorException extends Exception{
-	
+public class ExistentSectorException extends Exception
+{
 	public ExistentSectorException()
 	{
         super();
