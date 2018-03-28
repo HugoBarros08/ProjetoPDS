@@ -1,19 +1,31 @@
 import java.util.ArrayList;
 
+import exceptions.ExistentEquipmentCharacteristicException;
 import exceptions.InexistentCharacteristicException;
 import exceptions.InexistentEquipmentException;
 
 public class ManageEquipmentCharacteristic
 {
 	public void createEquipmentCharacteristic(ArrayList<Equipment> equipments, int equipmentId, int characteristicId, String characteristicName, String characteristicValue)
-	throws InexistentEquipmentException
+	throws InexistentEquipmentException, ExistentEquipmentCharacteristicException
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
 			if(equipments.get(index).getEquipmentId() == equipmentId)
 			{
+				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
+				
+				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
+				{
+					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					{
+						throw new ExistentEquipmentCharacteristicException("Já existe uma característica registrada com esse id");
+					}
+				}
+				
 				EquipmentCharacteristic characteristic = new EquipmentCharacteristic(characteristicId, characteristicName, characteristicValue);
-				equipments.get(index).getCharacteristics().add(characteristic);
+				characteristics.add(characteristic);
+				return;
 			}
 		}
 		
@@ -47,7 +59,52 @@ public class ManageEquipmentCharacteristic
 	}
 	
 	public void updateEquipmentCharacteristic(ArrayList<Equipment> equipments, int equipmentId, int characteristicId, String newCharacName, String newCharacValue)
+	throws InexistentCharacteristicException, InexistentEquipmentException
 	{
+		for(int index = 0; index < equipments.size(); index++)
+		{
+			if(equipments.get(index).getEquipmentId() == equipmentId)
+			{
+				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
+				
+				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
+				{
+					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					{
+						characteristics.get(characIndex).setName(newCharacName);
+						characteristics.get(characIndex).setValue(newCharacValue);
+						return;
+					}
+				}
+				
+				throw new InexistentCharacteristicException("Característica inexistente");
+			}
+		}
 		
+		throw new InexistentEquipmentException("Equipamento inexistente");
+	}
+	
+	public EquipmentCharacteristic searchEquipmentCharacteristic(ArrayList<Equipment> equipments, int equipmentId, int characteristicId)
+	throws InexistentCharacteristicException, InexistentEquipmentException
+	{
+		for(int index = 0; index < equipments.size(); index++)
+		{
+			if(equipments.get(index).getEquipmentId() == equipmentId)
+			{
+				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
+				
+				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
+				{
+					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					{
+						return characteristics.get(characIndex);
+					}
+				}
+				
+				throw new InexistentCharacteristicException("Característica inexistente");
+			}
+		}
+		
+		throw new InexistentEquipmentException("Equipamento inexistente");
 	}
 }
