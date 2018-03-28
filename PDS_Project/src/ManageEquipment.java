@@ -46,11 +46,11 @@ public class ManageEquipment
 		
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial)){
+			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial) && equipments.get(index).getEquipmentId() != id){
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo serial");
 			
-			} else if(equipments.get(index).getTumberNumber().equalsIgnoreCase(newTumber)){
+			} else if(equipments.get(index).getTumberNumber().equalsIgnoreCase(newTumber) && equipments.get(index).getEquipmentId() != id){
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo tombo");
 			
