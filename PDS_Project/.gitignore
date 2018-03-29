@@ -1,0 +1,26 @@
+# eclipse project file
+.settings/
+.classpath
+.project
+
+# Maven
+target/
+
+# Binaries
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Log file
+*.log
+
+# Package Files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+*.7z
