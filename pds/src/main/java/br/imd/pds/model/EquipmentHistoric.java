@@ -2,27 +2,39 @@ package br.imd.pds.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class EquipmentHistoric
 {
-	private int historicId;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="log")
 	private String log;
+	
+	@Column(name="date")
 	private Date date;
 	
-	public EquipmentHistoric(int id, String log, Date date)
+	public EquipmentHistoric(long id, String log, Date date)
 	{
-		this.historicId = id;
+		this.id = id;
 		this.log = log;
 		this.date = date;
 	}
 	
-	public int getHistoricId()
+	public long getId()
 	{
-		return this.historicId;
+		return this.id;
 	}
 	
-	public void setHistoricId(int id)
+	public void setId(long id)
 	{
-		this.historicId = id;
+		this.id = id;
 	}
 	
 	public String getLog()

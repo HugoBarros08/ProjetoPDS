@@ -31,7 +31,7 @@ public class ManageEquipment
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == id)
+			if(equipments.get(index).getId() == id)
 			{
 				equipments.remove(index);
 				return;
@@ -48,15 +48,15 @@ public class ManageEquipment
 		
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial) && equipments.get(index).getEquipmentId() != id){
+			if(equipments.get(index).getSerialNumber().equalsIgnoreCase(newSerial) && equipments.get(index).getId() != id){
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo serial");
 			
-			} else if(equipments.get(index).getTumberNumber().equalsIgnoreCase(newTumber) && equipments.get(index).getEquipmentId() != id){
+			} else if(equipments.get(index).getTumberNumber().equalsIgnoreCase(newTumber) && equipments.get(index).getId() != id){
 				
 				throw new ExistentEquipmentException("Já existe um equipamento registrado com o novo tombo");
 			
-			} else if(equipments.get(index).getEquipmentId() == id){
+			} else if(equipments.get(index).getId() == id){
 				
 				foundOne = equipments.get(index);
 			}
@@ -81,7 +81,7 @@ public class ManageEquipment
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == id)
+			if(equipments.get(index).getId() == id)
 			{
 				return equipments.get(index);
 			}
@@ -95,7 +95,7 @@ public class ManageEquipment
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == equipmentId)
+			if(equipments.get(index).getId() == equipmentId)
 			{
 				EquipmentHistoric maintenanceHistoric = new EquipmentHistoric(historicId, historicLog, historicDate);
 				equipments.get(index).getHistoric().add(maintenanceHistoric);
@@ -113,7 +113,7 @@ public class ManageEquipment
 			
 			for(int j = 0; j < equipments.size(); j++)
 			{
-				System.out.println("Equipamento " + equipments.get(j).getEquipmentId() + ":");
+				System.out.println("Equipamento " + equipments.get(j).getId() + ":");
 				System.out.println("Número serial: " + equipments.get(j).getSerialNumber());
 				System.out.println("Número de tombo:  " + equipments.get(j).getTumberNumber());
 				System.out.println("Data de registro: " + equipments.get(j).getRegistrationDate());
@@ -126,7 +126,7 @@ public class ManageEquipment
 					System.out.println("ID    | Nome    | Quantidade");
 					for(int i = 0; i < equipments.get(j).getCharacteristics().size(); i++)
 					{
-						System.out.print(equipments.get(j).getCharacteristics().get(i).getCharacteristicId() + " | ");
+						System.out.print(equipments.get(j).getCharacteristics().get(i).getId() + " | ");
 						System.out.print(equipments.get(j).getCharacteristics().get(i).getName() + " | ");
 						System.out.println(equipments.get(j).getCharacteristics().get(i).getValue());
 					}		

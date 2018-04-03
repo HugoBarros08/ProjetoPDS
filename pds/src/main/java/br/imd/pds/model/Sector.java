@@ -2,37 +2,52 @@ package br.imd.pds.model;
 
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Sector
 {
-	private int sectorId;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@OneToMany
 	private ArrayList<Equipment> equipment;
+	
+	@OneToMany
 	private ArrayList<User> leader;
 	
-	public Sector(int id, String name, ArrayList<Equipment> equipment, ArrayList<User> leader)
+	public Sector(long id, String name, ArrayList<Equipment> equipment, ArrayList<User> leader)
 	{
-		this.sectorId = id;
+		this.id = id;
 		this.name = name;
 		this.equipment = equipment;
 		this.leader = leader;
 	}
 	
-	public Sector(int id, String name)
+	public Sector(long id, String name)
 	{
-		this.sectorId = id;
+		this.id = id;
 		this.name = name;
 		this.equipment = new ArrayList<Equipment>();
 		this.leader = new ArrayList<User>();
 	}
 	
-	public int getSectorId()
+	public long getId()
 	{
-		return this.sectorId;
+		return this.id;
 	}
 	
-	public void setSectorId(int id)
+	public void setId(long id)
 	{
-		this.sectorId = id;
+		this.id = id;
 	}
 	
 	public void setName(String name){

@@ -1,26 +1,39 @@
 package br.imd.pds.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+
+@Entity
 public class EquipmentCharacteristic
 {
-	private int characteristicId;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="name")
 	private String name;
+	
+	@Column(name="value")
 	private String value;
 	
-	public EquipmentCharacteristic(int id, String name, String value)
+	public EquipmentCharacteristic(long id, String name, String value)
 	{
-		this.characteristicId = id;
+		this.id = id;
 		this.name = name;
 		this.value = value;
 	}
 	
-	public int getCharacteristicId()
+	public long getId()
 	{
-		return this.characteristicId;
+		return this.id;
 	}
 	
-	public void setCharacteristicId(int id)
+	public void setId(long id)
 	{
-		this.characteristicId = id;
+		this.id = id;
 	}
 	
 	public String getName()

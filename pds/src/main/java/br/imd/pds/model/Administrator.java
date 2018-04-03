@@ -1,12 +1,31 @@
 package br.imd.pds.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Administrator
 {
-	String registration;
-	String name;
-	String username;
-	String password;
-	String email;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="registration")
+	private String registration;
+	
+	@Column(name="name")
+	private String name;
+	
+	@Column(name="username")
+	private String username;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="email")
+	private String email;
 	
 	public Administrator(String registration, String name, String username, String password, String email)
 	{

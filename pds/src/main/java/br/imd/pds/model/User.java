@@ -1,9 +1,24 @@
 package br.imd.pds.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class User
 {
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="registration")
 	private String registration;
+	
+	@Column(name="name")
 	private String name;
+
+	@Column(name="email")
 	private String email;
 
 	public User(String registration, String name, String email)

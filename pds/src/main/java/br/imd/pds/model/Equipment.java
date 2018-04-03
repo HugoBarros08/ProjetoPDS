@@ -1,26 +1,49 @@
 package br.imd.pds.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import java.util.ArrayList;
 import java.util.Date;
 
+@Entity
 public class Equipment {
 	
-	private int equipmentId;
+	@Id
+	@GeneratedValue
+	private long id;
+	
+	@Column(name="serial_number")
 	private String serialNumber;
+	
+	@Column(name="tumber_number")
 	private String tumberNumber;
+	
+	@Column(name="registration_date")
 	private Date registrationDate;
+	
+	@Column(name="last_maintenance")
 	private Date lastMaintenance;
+	
+	@Column(name="status")
 	private String status;
+	
+	@OneToMany
 	private ArrayList<EquipmentCharacteristic> characteristics;
+	
+	@OneToMany
 	private ArrayList<EquipmentHistoric> historic;
 	
 	public static final String green = "green";
 	public static final String orange = "orange";
 	public static final String red = "red";
 	
-	public Equipment(int id, String serial, String tumber, Date registration, Date lastMaintenance)
+	public Equipment(long id, String serial, String tumber, Date registration, Date lastMaintenance)
 	{
-		this.equipmentId = id;
+		this.id = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
 		this.registrationDate = registration;
@@ -31,9 +54,9 @@ public class Equipment {
 		this.historic = new ArrayList<EquipmentHistoric>();
 	}
 
-	public Equipment(int id, String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
+	public Equipment(long id, String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
 	{
-		this.equipmentId = id;
+		this.id = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
 		this.registrationDate = product;
@@ -42,14 +65,14 @@ public class Equipment {
 		this.historic = historic;
 	}
 	
-	public int getEquipmentId()
+	public long getId()
 	{
-		return this.equipmentId;
+		return this.id;
 	}
 	
 	public void setEquipmentId(int id)
 	{
-		this.equipmentId = id;
+		this.id = id;
 	}
 	
 	public String getSerialNumber()

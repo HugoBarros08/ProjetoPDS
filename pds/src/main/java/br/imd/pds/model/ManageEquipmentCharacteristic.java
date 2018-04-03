@@ -13,13 +13,13 @@ public class ManageEquipmentCharacteristic
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == equipmentId)
+			if(equipments.get(index).getId() == equipmentId)
 			{
 				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
 				
 				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
 				{
-					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					if(characteristics.get(characIndex).getId() == characteristicId)
 					{
 						throw new ExistentEquipmentCharacteristicException("Já existe uma característica registrada com esse id");
 					}
@@ -40,13 +40,13 @@ public class ManageEquipmentCharacteristic
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == equipmentId)
+			if(equipments.get(index).getId() == equipmentId)
 			{
 				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
 				
 				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
 				{
-					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					if(characteristics.get(characIndex).getId() == characteristicId)
 					{
 						characteristics.remove(characIndex);
 						return;
@@ -65,13 +65,13 @@ public class ManageEquipmentCharacteristic
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == equipmentId)
+			if(equipments.get(index).getId() == equipmentId)
 			{
 				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
 				
 				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
 				{
-					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					if(characteristics.get(characIndex).getId() == characteristicId)
 					{
 						characteristics.get(characIndex).setName(newCharacName);
 						characteristics.get(characIndex).setValue(newCharacValue);
@@ -91,13 +91,13 @@ public class ManageEquipmentCharacteristic
 	{
 		for(int index = 0; index < equipments.size(); index++)
 		{
-			if(equipments.get(index).getEquipmentId() == equipmentId)
+			if(equipments.get(index).getId() == equipmentId)
 			{
 				ArrayList<EquipmentCharacteristic> characteristics = equipments.get(index).getCharacteristics();
 				
 				for(int characIndex = 0; characIndex < characteristics.size(); characIndex++)
 				{
-					if(characteristics.get(characIndex).getCharacteristicId() == characteristicId)
+					if(characteristics.get(characIndex).getId() == characteristicId)
 					{
 						return characteristics.get(characIndex);
 					}
