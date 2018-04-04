@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import br.imd.pds.exceptions.ExistentSectorException;
 import br.imd.pds.exceptions.InexistentSectorException;
 
-public class SectorKeeper
+public class ManageSector
 {
 	ArrayList<Sector> sectors;
 	
-	public SectorKeeper()
+	public ManageSector()
 	{
 		sectors = new ArrayList<Sector>();
 	}
