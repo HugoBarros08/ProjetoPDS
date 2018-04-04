@@ -2,8 +2,8 @@ package br.imd.pds.model;
 
 import java.util.ArrayList;
 
-import br.imd.pds.exceptions.ExistentSectorException;
-import br.imd.pds.exceptions.InexistentSectorException;
+import br.imd.pds.exceptions.*;
+import java.io.InvalidObjectException;
 
 public class ManageSector
 {
@@ -14,13 +14,13 @@ public class ManageSector
 		sectors = new ArrayList<Sector>();
 	}
 	
-	public void createSector(int id, String name) throws ExistentSectorException
+	public void createSector(int id, String name) throws ExistentObjectException
 	{
 		for(int index = 0; index < sectors.size(); index++)
 		{
 			if(sectors.get(index).getName().equalsIgnoreCase(name))
 			{
-				throw new ExistentSectorException("Já existe um setor registrado com esse nome");
+				throw new ExistentObjectException("Já existe um setor registrado com esse nome");
 			}
 		}
 		
@@ -43,7 +43,7 @@ public class ManageSector
 		throw new InexistentSectorException("Setor inexistente");
 	}
 	
-	public void updateSector(String name, String newName) throws ExistentSectorException, InexistentSectorException
+	public void updateSector(String name, String newName) throws ExistentObjectException, InexistentSectorException
 	{
 		Sector foundOne = null;
 		
@@ -51,7 +51,7 @@ public class ManageSector
 		{
 			if(sectors.get(index).getName().equalsIgnoreCase(newName))
 			{
-				throw new ExistentSectorException("Já existe um setor registrado com o novo nome");	
+				throw new ExistentObjectException("Já existe um setor registrado com o novo nome");	
 			
 			} else if(sectors.get(index).getName().equalsIgnoreCase(name)){
 				

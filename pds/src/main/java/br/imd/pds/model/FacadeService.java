@@ -15,8 +15,7 @@ public class FacadeService {
 	private ManageEquipmentHistoric mEquipHistoric;
 	
 	public FacadeService(ManageEquipment mEquip, ManageSector mSector, ManageUser mUser, ManageAdministrator mAdm, 
-			ManageEquipmentCharacteristic mEquipCharac, ManageEquipmentHistoric mEquipHistoric)
-	{
+			ManageEquipmentCharacteristic mEquipCharac, ManageEquipmentHistoric mEquipHistoric) {
 		this.mEquipement = mEquip;
 		this.mSector = mSector;
 		this.mUser = mUser;
