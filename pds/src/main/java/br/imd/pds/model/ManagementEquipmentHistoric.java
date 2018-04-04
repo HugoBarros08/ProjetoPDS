@@ -1,11 +1,8 @@
 package br.imd.pds.model;
 
-import java.util.ArrayList;
-import java.util.Date;
-
 import br.imd.pds.exceptions.*;
 
-public class ManageEquipmentHistoric {
+public class ManagementEquipmentHistoric {
 
 	public void createEquipmentHistoric(EquipmentHistoric equipmentHistoric) throws InexistentObjectException {
 	

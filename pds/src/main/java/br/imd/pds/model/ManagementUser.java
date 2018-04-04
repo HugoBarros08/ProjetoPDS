@@ -1,5 +1,5 @@
 package br.imd.pds.model;
 
-public class ManageUser {
+public class ManagementUser {
 
 }

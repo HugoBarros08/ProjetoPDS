@@ -3,7 +3,7 @@ package br.imd.pds.model;
 import br.imd.pds.exceptions.*;
 import java.io.InvalidObjectException;
 
-public class ManageSector
+public class ManagementSector
 {
 	
 	public void createSector(Sector sector) throws ExistentObjectException {

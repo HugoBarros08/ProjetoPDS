@@ -1,14 +1,18 @@
 package br.imd.pds.model;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
 import java.io.InvalidObjectException;
+
+import br.imd.pds.DAO.IEquipmentRepository;
 import br.imd.pds.exceptions.*;
 
-public class ManageEquipment
-{	
+public class ManagementEquipment
+{
+	IEquipmentRepository equipRepository;
+	
+	public ManagementEquipment(IEquipmentRepository i) {
+		equipRepository = i;
+	}
+	
 	public boolean validateObjEquipment() throws InvalidObjectException {
 		
 		return false;

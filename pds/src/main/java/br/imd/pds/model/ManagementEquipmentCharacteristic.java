@@ -1,10 +1,17 @@
 package br.imd.pds.model;
 
+import br.imd.pds.DAO.IEquipmentCharacteristicRepository;
 import br.imd.pds.exceptions.*;
 
 
-public class ManageEquipmentCharacteristic
-{
+public class ManagementEquipmentCharacteristic {
+	
+	private IEquipmentCharacteristicRepository equipCharacRepository;
+	
+	public ManagementEquipmentCharacteristic(IEquipmentCharacteristicRepository i) {
+		equipCharacRepository = i;
+	}
+	
 	public void createEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException, ExistentObjectException {
 
 		
