@@ -1,7 +1,5 @@
 package br.imd.pds.model;
 
-import java.util.ArrayList;
-
 import br.imd.pds.exceptions.*;
 import java.io.InvalidObjectException;
 
