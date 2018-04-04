@@ -8,8 +8,8 @@ public class ManagementEquipmentCharacteristic {
 	
 	private IEquipmentCharacteristicRepository equipCharacRepository;
 	
-	public ManagementEquipmentCharacteristic(IEquipmentCharacteristicRepository i) {
-		equipCharacRepository = i;
+	public ManagementEquipmentCharacteristic(IEquipmentCharacteristicRepository equipCharacRepository) {
+		this.equipCharacRepository = equipCharacRepository;
 	}
 	
 	public void createEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException, ExistentObjectException {

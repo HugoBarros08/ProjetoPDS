@@ -6,7 +6,7 @@ public class ManagementAdministrator {
 
 	private IAdministratorRepository admRepository;
 
-	public ManagementAdministrator(IAdministratorRepository i) {
-		admRepository = i;
+	public ManagementAdministrator(IAdministratorRepository admRepository) {
+		this.admRepository = admRepository;
 	}
 }

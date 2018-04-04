@@ -1,10 +1,16 @@
 package br.imd.pds.model;
 
+import br.imd.pds.DAO.ISectorRepository;
 import br.imd.pds.exceptions.*;
 import java.io.InvalidObjectException;
 
 public class ManagementSector
 {
+	private ISectorRepository sectorRepository;
+	
+	public ManagementSector(ISectorRepository sectorRepository) {
+		this.sectorRepository = sectorRepository;
+	}
 	
 	public void createSector(Sector sector) throws ExistentObjectException {
 

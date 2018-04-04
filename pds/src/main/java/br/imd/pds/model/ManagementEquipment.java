@@ -7,10 +7,10 @@ import br.imd.pds.exceptions.*;
 
 public class ManagementEquipment
 {
-	IEquipmentRepository equipRepository;
+	private IEquipmentRepository equipRepository;
 	
-	public ManagementEquipment(IEquipmentRepository i) {
-		equipRepository = i;
+	public ManagementEquipment(IEquipmentRepository equipRepository) {
+		this.equipRepository = equipRepository;
 	}
 	
 	public boolean validateObjEquipment() throws InvalidObjectException {
