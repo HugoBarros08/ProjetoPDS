@@ -13,6 +13,11 @@ public class ManagementEquipment
 		this.equipRepository = equipRepository;
 	}
 	
+	private void validade(Equipment equipment) throws InvalidObjectException {
+		
+		throw new InvalidObjectException("");
+	}
+	
 	public boolean validateObjEquipment() throws InvalidObjectException {
 		
 		return false;
