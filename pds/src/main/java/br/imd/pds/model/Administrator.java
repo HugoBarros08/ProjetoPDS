@@ -6,8 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Administrator
-{
+public class Administrator {
+	
 	@Id
 	@GeneratedValue
 	private long id;

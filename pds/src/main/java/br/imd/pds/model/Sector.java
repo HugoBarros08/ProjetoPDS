@@ -9,8 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Sector
-{
+public class Sector {
 	@Id
 	@GeneratedValue
 	private long id;

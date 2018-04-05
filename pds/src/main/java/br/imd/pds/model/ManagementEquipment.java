@@ -5,8 +5,8 @@ import java.io.InvalidObjectException;
 import br.imd.pds.DAO.IEquipmentRepository;
 import br.imd.pds.exceptions.*;
 
-public class ManagementEquipment
-{
+public class ManagementEquipment {
+	
 	private IEquipmentRepository equipRepository;
 	
 	public ManagementEquipment(IEquipmentRepository equipRepository) {

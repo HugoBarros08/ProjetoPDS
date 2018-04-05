@@ -3,10 +3,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.imd.pds.model.Equipment;
 
-public interface IEquipmentRepository extends JpaRepository<Equipment,Long>{
+public interface IEquipmentRepository extends JpaRepository<Equipment,Long> {
 	
-	public void insertEquipment();
-	public void deleteEquipment();
-	public void updateEquipment();
-	public Equipment searchEquipment();	
+	public Equipment findBySerialNumber(String serialNumber);
+	
+	public Equipment findByTumberNumber(String tumberNumber);
+
 }

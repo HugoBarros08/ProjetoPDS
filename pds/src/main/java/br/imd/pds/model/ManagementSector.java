@@ -4,8 +4,8 @@ import br.imd.pds.DAO.ISectorRepository;
 import br.imd.pds.exceptions.*;
 import java.io.InvalidObjectException;
 
-public class ManagementSector
-{
+public class ManagementSector {
+	
 	private ISectorRepository sectorRepository;
 	
 	public ManagementSector(ISectorRepository sectorRepository) {

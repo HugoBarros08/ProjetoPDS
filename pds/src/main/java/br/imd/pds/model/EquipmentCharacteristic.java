@@ -7,8 +7,8 @@ import javax.persistence.Id;
 
 
 @Entity
-public class EquipmentCharacteristic
-{
+public class EquipmentCharacteristic {
+	
 	@Id
 	@GeneratedValue
 	private long id;

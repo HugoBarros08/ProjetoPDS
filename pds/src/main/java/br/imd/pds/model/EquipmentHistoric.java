@@ -8,8 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class EquipmentHistoric
-{
+public class EquipmentHistoric {
+	
 	@Id
 	@GeneratedValue
 	private long id;
