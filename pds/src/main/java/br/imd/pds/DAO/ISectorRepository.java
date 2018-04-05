@@ -3,8 +3,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.imd.pds.model.Sector;
 
-public interface ISectorRepository extends JpaRepository<Sector,Long>{
-	public void createSector();
+public interface ISectorRepository extends JpaRepository<Sector,Long> {
+	
+	public void insertSector();
 	public void deleteSector();
 	public void updateSector();
 	public Sector searchSector();

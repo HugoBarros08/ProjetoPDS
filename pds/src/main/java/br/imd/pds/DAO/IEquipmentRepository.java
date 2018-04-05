@@ -5,7 +5,7 @@ import br.imd.pds.model.Equipment;
 
 public interface IEquipmentRepository extends JpaRepository<Equipment,Long>{
 	
-	public void createEquipment();
+	public void insertEquipment();
 	public void deleteEquipment();
 	public void updateEquipment();
 	public Equipment searchEquipment();	

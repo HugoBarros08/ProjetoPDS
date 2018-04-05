@@ -4,8 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.imd.pds.model.EquipmentCharacteristic;
 
 public interface IEquipmentCharacteristicRepository extends JpaRepository<EquipmentCharacteristic,Long> {
-	public void createEquipmentCharacteristic();
-	public void removeEquipmentCharacteristic();
+	public void insertEquipmentCharacteristic();
+	public void deleteEquipmentCharacteristic();
 	public void updateEquipmentCharacteristic();
 	public EquipmentCharacteristic searchEquipmentCharacteristic();
 }
