@@ -10,9 +10,9 @@ public class ConnectionMySql {
 
 	// Método de Conexão//
 
-	public static java.sql.Connection getConexaoMySQL() {
+	public static java.sql.Connection getConnectionMySQL() {
 	 
-		Connection connection = null;//atributo do tipo Connection
+		Connection connection = null; //atributo do tipo Connection
  
 		try {
 			// Carregando o JDBC Driver padrão
@@ -33,15 +33,12 @@ public class ConnectionMySql {
 	        } else {
 	        	status = ("STATUS--->Não foi possivel realizar conexão");
 	        }
-	        
 	        return connection;
 	 
 	        } catch (ClassNotFoundException e) {  //Driver não encontrado
 	        	System.out.println("O driver expecificado nao foi encontrado.");
 	            return null;
-	 
 	        } catch (SQLException e) {
-	 
 	        	//Não conseguindo se conectar ao banco
 	        	System.out.println("Nao foi possivel conectar ao Banco de Dados.");
 	 
@@ -51,35 +48,25 @@ public class ConnectionMySql {
 
 	// Método que retorna o status da sua conexão//
 	public static String statusConection() {
-
 		return status;
-
 	}
 
 	// Método que fecha sua conexão//
-	public static boolean FecharConexao() {
+	public static boolean closeConnection() {
 
 		try {
-
-			ConnectionMySql.getConexaoMySQL().close();
-
+			ConnectionMySql.getConnectionMySQL().close();
 			return true;
-
 		} catch (SQLException e) {
-
 			return false;
-
 		}
-
 	}
 
 	// Método que reinicia sua conexão//
 
-	public static java.sql.Connection ReiniciarConexao() {
+	public static java.sql.Connection rebootConnection() {
 
-		FecharConexao();
-
-		return ConnectionMySql.getConexaoMySQL();
-
+		closeConnection();
+		return ConnectionMySql.getConnectionMySQL();
 	}
 }

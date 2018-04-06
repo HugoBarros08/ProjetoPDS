@@ -1,4 +1,4 @@
-package br.imd.pds.exceptions;
+package br.imd.pds.helpers;
 
 public class ExistentObjectException extends Exception
 {

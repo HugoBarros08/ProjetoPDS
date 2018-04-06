@@ -1,7 +1,8 @@
 package br.imd.pds.model;
 
 import br.imd.pds.DAO.ISectorRepository;
-import br.imd.pds.exceptions.*;
+import br.imd.pds.helpers.*;
+
 import java.io.InvalidObjectException;
 
 public class ManagementSector {

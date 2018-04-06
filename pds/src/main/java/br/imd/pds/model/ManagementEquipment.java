@@ -3,7 +3,7 @@ package br.imd.pds.model;
 import java.io.InvalidObjectException;
 
 import br.imd.pds.DAO.IEquipmentRepository;
-import br.imd.pds.exceptions.*;
+import br.imd.pds.helpers.*;
 
 public class ManagementEquipment {
 	
