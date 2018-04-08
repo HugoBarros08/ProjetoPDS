@@ -8,6 +8,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.imd.pds.model.Equipment;
+import br.imd.pds.repository.IEquipmentRepository;
 
 public class EquipmentRepositoryTest {
 

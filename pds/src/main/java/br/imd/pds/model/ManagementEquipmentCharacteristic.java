@@ -1,7 +1,7 @@
 package br.imd.pds.model;
 
-import br.imd.pds.DAO.IEquipmentCharacteristicRepository;
 import br.imd.pds.helpers.*;
+import br.imd.pds.repository.IEquipmentCharacteristicRepository;
 
 
 public class ManagementEquipmentCharacteristic {

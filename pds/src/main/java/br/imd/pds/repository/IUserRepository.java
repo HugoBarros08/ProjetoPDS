@@ -1,11 +1,10 @@
-package br.imd.pds.DAO;
+package br.imd.pds.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import br.imd.pds.model.User;
 
+@Repository
 public interface IUserRepository extends JpaRepository<User,Long> {
-	public void insertUser();
-	public void deleteUser();
-	public void updateUser();
-	public User searchUser();	
+
 }

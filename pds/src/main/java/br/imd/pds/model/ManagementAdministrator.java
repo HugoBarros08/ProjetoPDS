@@ -1,6 +1,6 @@
 package br.imd.pds.model;
 
-import br.imd.pds.DAO.IAdministratorRepository;
+import br.imd.pds.repository.IAdministratorRepository;
 
 public class ManagementAdministrator {
 

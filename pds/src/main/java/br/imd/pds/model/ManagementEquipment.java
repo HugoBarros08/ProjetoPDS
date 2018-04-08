@@ -2,8 +2,8 @@ package br.imd.pds.model;
 
 import java.io.InvalidObjectException;
 
-import br.imd.pds.DAO.IEquipmentRepository;
 import br.imd.pds.helpers.*;
+import br.imd.pds.repository.IEquipmentRepository;
 
 public class ManagementEquipment {
 	
