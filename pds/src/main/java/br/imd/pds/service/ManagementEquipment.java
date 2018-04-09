@@ -1,16 +1,22 @@
-package br.imd.pds.model;
+package br.imd.pds.service;
 
 import java.io.InvalidObjectException;
 
-import br.imd.pds.helpers.*;
-import br.imd.pds.repository.IEquipmentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import br.imd.pds.helpers.*;
+import br.imd.pds.model.Equipment;
+import br.imd.pds.repository.EquipmentRepository;
+
+@Service
 public class ManagementEquipment {
 	
-	private IEquipmentRepository equipRepository;
+	@Autowired
+	private EquipmentRepository repository;
 	
-	public ManagementEquipment(IEquipmentRepository equipRepository) {
-		this.equipRepository = equipRepository;
+	public ManagementEquipment(EquipmentRepository repository) {
+		this.repository = repository;
 	}
 	
 	private void validade(Equipment equipment) throws InvalidObjectException {
@@ -38,6 +44,14 @@ public class ManagementEquipment {
 	public Equipment searchEquipment(int id) throws InexistentObjectException {
 		Equipment eq = null;
 		return eq;
+	}
+
+	public EquipmentRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(EquipmentRepository repository) {
+		this.repository = repository;
 	}
 	
 }

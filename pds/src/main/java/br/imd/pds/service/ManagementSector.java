@@ -1,16 +1,22 @@
-package br.imd.pds.model;
+package br.imd.pds.service;
 
 import br.imd.pds.helpers.*;
-import br.imd.pds.repository.ISectorRepository;
+import br.imd.pds.model.Sector;
+import br.imd.pds.repository.SectorRepository;
 
 import java.io.InvalidObjectException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ManagementSector {
 	
-	private ISectorRepository sectorRepository;
+	@Autowired
+	private SectorRepository repository;
 	
-	public ManagementSector(ISectorRepository sectorRepository) {
-		this.sectorRepository = sectorRepository;
+	public ManagementSector(SectorRepository repository) {
+		this.repository = repository;
 	}
 	
 	public void createSector(Sector sector) throws ExistentObjectException {
@@ -39,5 +45,13 @@ public class ManagementSector {
 	
 	public void reschedule() {
 		
+	}
+
+	public SectorRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(SectorRepository repository) {
+		this.repository = repository;
 	}
 }

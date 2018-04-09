@@ -8,11 +8,11 @@ import java.util.Calendar;
 import java.util.List;
 
 import br.imd.pds.model.Equipment;
-import br.imd.pds.repository.IEquipmentRepository;
+import br.imd.pds.repository.EquipmentRepository;
 
 public class EquipmentRepositoryTest {
 
-	IEquipmentRepository repository;
+	EquipmentRepository repository;
 	
 	@Test
 	public void testRepository(){

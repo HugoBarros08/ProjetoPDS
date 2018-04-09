@@ -1,5 +1,14 @@
 package br.imd.pds.repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public class SectorRepository {
+import br.imd.pds.model.Sector;
 
+public interface SectorRepository extends JpaRepository<Sector,Long> {
+	
+	public void insertSector();
+	public void deleteSector();
+	public void updateSector();
+	public Sector searchSector();
+	public void schedule();
+	public void reschedule();
 }
