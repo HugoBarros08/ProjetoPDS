@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+	
 	@Id
 	@GeneratedValue
 	private long id;
@@ -19,6 +20,8 @@ public class User {
 
 	@Column(name="email")
 	private String email;
+	
+	public User() {}
 
 	public User(String registration, String name, String email)
 	{
@@ -55,6 +58,11 @@ public class User {
 	public String getEmail()
 	{
 		return email;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", registration=" + registration + ", name=" + name + ", email=" + email + "]";
 	}
 
 }
