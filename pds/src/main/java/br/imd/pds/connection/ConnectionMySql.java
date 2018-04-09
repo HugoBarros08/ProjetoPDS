@@ -2,7 +2,9 @@ package br.imd.pds.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class ConnectionMySql {
 
@@ -69,4 +71,28 @@ public class ConnectionMySql {
 		closeConnection();
 		return ConnectionMySql.getConnectionMySQL();
 	}
+	
+	
+	public static void main(String[] args) throws SQLException {
+		Connection con = ConnectionMySql.getConnectionMySQL();
+		 Statement stmt = null;
+		    String query = "select name_adm from administrator";
+		    try {
+		        stmt = con.createStatement();
+		        ResultSet rs = stmt.executeQuery(query);
+		        while (rs.next()) {
+		            //String coffeeName = rs.getString("adm_id");
+		            String supplierID = rs.getString("name_adm");
+//		            float price = rs.getFloat("PRICE");
+//		            int sales = rs.getInt("SALES");
+//		            int total = rs.getInt("TOTAL");
+		            System.out.println(supplierID);
+		        }
+		    } catch (SQLException e ) {
+		    	System.out.print(e.getMessage());
+		    } finally {
+		        if (stmt != null) { stmt.close(); }
+		    }
+		 
+		}
 }

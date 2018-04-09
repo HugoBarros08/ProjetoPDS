@@ -44,6 +44,9 @@ public class UserController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String newUser(User user) {
 		try {
+			user.setRegistration("08386670401");
+			user.setName("Heytor");
+			user.setEmail("hmesquita26@outlook.com");
 			managementUser.insertUser(user);
 		} catch (ExistentObjectException e) {
 			e.printStackTrace();
