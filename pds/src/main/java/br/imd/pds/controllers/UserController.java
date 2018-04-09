@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.imd.pds.helpers.ExistentObjectException;
 import br.imd.pds.model.User;
-import br.imd.pds.service.ManagementUser;
+import br.imd.pds.service.ManagementUserService;
 
 @Controller
 @RequestMapping("/users")
 public class UserController {
 
 	@Autowired
-	private ManagementUser managementUser;
+	private ManagementUserService managementUser;
 	
 	/**
 	 * Return user with the given id
@@ -54,11 +54,11 @@ public class UserController {
 		return ("redirect:/list.html");
 	}
 
-	public ManagementUser getManagementUser() {
+	public ManagementUserService getManagementUser() {
 		return managementUser;
 	}
 
-	public void setManagementUser(ManagementUser managementUser) {
+	public void setManagementUser(ManagementUserService managementUser) {
 		this.managementUser = managementUser;
 	}
 

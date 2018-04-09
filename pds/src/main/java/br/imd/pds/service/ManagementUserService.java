@@ -9,12 +9,12 @@ import br.imd.pds.model.User;
 import br.imd.pds.repository.UserRepository;
 
 @Service
-public class ManagementUser {
+public class ManagementUserService {
 	
 	@Autowired
 	private UserRepository repository;
 
-	public ManagementUser(UserRepository repository) {
+	public ManagementUserService(UserRepository repository) {
 	 this.repository = repository;
 	}
 	

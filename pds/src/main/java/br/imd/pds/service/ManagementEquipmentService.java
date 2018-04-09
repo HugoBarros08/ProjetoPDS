@@ -10,12 +10,12 @@ import br.imd.pds.model.Equipment;
 import br.imd.pds.repository.EquipmentRepository;
 
 @Service
-public class ManagementEquipment {
+public class ManagementEquipmentService {
 	
 	@Autowired
 	private EquipmentRepository repository;
 	
-	public ManagementEquipment(EquipmentRepository repository) {
+	public ManagementEquipmentService(EquipmentRepository repository) {
 		this.repository = repository;
 	}
 	

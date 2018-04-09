@@ -3,13 +3,14 @@ package br.imd.pds.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class User {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
 	@Column(name="registration")
@@ -20,10 +21,6 @@ public class User {
 
 	@Column(name="email")
 	private String email;
-	
-	public User() {
-		
-	}
 
 	public User(String registration, String name, String email)
 	{

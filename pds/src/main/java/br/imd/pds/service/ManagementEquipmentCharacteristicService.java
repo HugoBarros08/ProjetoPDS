@@ -8,12 +8,12 @@ import br.imd.pds.model.EquipmentCharacteristic;
 import br.imd.pds.repository.EquipmentCharacteristicRepository;
 
 @Service
-public class ManagementEquipmentCharacteristic {
+public class ManagementEquipmentCharacteristicService {
 	
 	@Autowired
 	private EquipmentCharacteristicRepository repository;
 	
-	public ManagementEquipmentCharacteristic(EquipmentCharacteristicRepository repository) {
+	public ManagementEquipmentCharacteristicService(EquipmentCharacteristicRepository repository) {
 		this.repository = repository;
 	}
 	

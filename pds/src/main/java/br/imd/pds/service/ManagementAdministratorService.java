@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import br.imd.pds.repository.AdministratorRepository;
 
 @Service
-public class ManagementAdministrator {
+public class ManagementAdministratorService {
 
 	@Autowired
 	private AdministratorRepository repository;

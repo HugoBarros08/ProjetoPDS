@@ -8,12 +8,12 @@ import br.imd.pds.model.EquipmentHistoric;
 import br.imd.pds.repository.EquipmentHistoricRepository;
 
 @Service
-public class ManagementEquipmentHistoric {
+public class ManagementEquipmentHistoricService {
 	
 	@Autowired
 	private EquipmentHistoricRepository repository;
 	
-	public ManagementEquipmentHistoric(EquipmentHistoricRepository repository) {
+	public ManagementEquipmentHistoricService(EquipmentHistoricRepository repository) {
 		this.repository = repository;
 	}
 

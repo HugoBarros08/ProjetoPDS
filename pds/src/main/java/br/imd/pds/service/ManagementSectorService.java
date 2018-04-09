@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ManagementSector {
+public class ManagementSectorService {
 	
 	@Autowired
 	private SectorRepository repository;
 	
-	public ManagementSector(SectorRepository repository) {
+	public ManagementSectorService(SectorRepository repository) {
 		this.repository = repository;
 	}
 	
