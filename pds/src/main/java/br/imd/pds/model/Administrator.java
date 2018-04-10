@@ -12,8 +12,8 @@ public class Administrator {
 	@GeneratedValue
 	private long id;
 	
-	@Column(name="registration")
-	private String registration;
+	@Column(name="cpf")
+	private String cpf;
 	
 	@Column(name="name")
 	private String name;
@@ -27,23 +27,23 @@ public class Administrator {
 	@Column(name="email")
 	private String email;
 	
-	public Administrator(String registration, String name, String username, String password, String email)
+	public Administrator(String cpf, String name, String username, String password, String email)
 	{
-		this.registration = registration;
+		this.cpf = cpf;
 		this.name = name;
 		this.username = username;
 		this.password = password;
 		this.email = email;
 	}
 
-	public String getRegistration()
+	public String getCpf()
 	{
-		return this.registration;
+		return this.cpf;
 	}
 	
-	public void set(String registration)
+	public void setCpf(String cpf)
 	{
-		this.registration = registration;
+		this.cpf = cpf;
 	}
 	
 	public String getName()

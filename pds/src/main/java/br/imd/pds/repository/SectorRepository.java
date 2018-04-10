@@ -5,10 +5,5 @@ import br.imd.pds.model.Sector;
 
 public interface SectorRepository extends JpaRepository<Sector,Long> {
 	
-	public void insertSector();
-	public void deleteSector();
-	public void updateSector();
-	public Sector searchSector();
-	public void schedule();
-	public void reschedule();
+
 }

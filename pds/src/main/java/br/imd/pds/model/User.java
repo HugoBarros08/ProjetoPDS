@@ -13,8 +13,8 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
-	@Column(name="registration")
-	private String registration;
+	@Column(name="cpf")
+	private String cpf;
 	
 	@Column(name="name")
 	private String name;
@@ -22,21 +22,21 @@ public class User {
 	@Column(name="email")
 	private String email;
 
-	public User(String registration, String name, String email)
+	public User(String cpf, String name, String email)
 	{
-		this.registration = registration;
+		this.cpf = cpf;
 		this.name = name;
 		this.email = email;
 	}
 	
-	public void setRegistration(String registration)
+	public void setCpf(String cpf)
 	{
-		this.registration = registration;
+		this.cpf = cpf;
 	}
 
-	public String getRegistration()
+	public String getCpf()
 	{
-		return registration;
+		return cpf;
 	}
 
 	public void setName(String name)
@@ -61,7 +61,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", registration=" + registration + ", name=" + name + ", email=" + email + "]";
+		return "User [id=" + id + ", cpf=" + cpf + ", name=" + name + ", email=" + email + "]";
 	}
 
 }

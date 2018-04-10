@@ -9,6 +9,6 @@ import br.imd.pds.model.User;
 public interface UserRepository extends JpaRepository<User,Long> {
 	
 	@Query("select u from User u where u.registration = ?1")
-	public User findByRegistration(String registration);
+	public User findByCpf(String cpf);
 
 }
