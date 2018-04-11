@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class User {
@@ -21,6 +23,10 @@ public class User {
 
 	@Column(name="email")
 	private String email;
+	
+	@ManyToOne
+	@JoinColumn(name="sector_id")
+	private Sector sector;
 	
 	@Column(name="flag_user")
 	private boolean flag;
@@ -85,6 +91,14 @@ public class User {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
 	}
 
 }

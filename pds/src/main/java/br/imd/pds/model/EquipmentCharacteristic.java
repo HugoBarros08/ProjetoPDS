@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -18,6 +20,10 @@ public class EquipmentCharacteristic {
 	
 	@Column(name="value")
 	private String value;
+	
+	@ManyToOne
+	@JoinColumn(name="equipment_id")
+	Equipment equipment;
 	
 	public EquipmentCharacteristic() {
 	}
@@ -57,5 +63,13 @@ public class EquipmentCharacteristic {
 	public void setValue(String value)
 	{
 		this.value = value;
+	}
+	
+	public Equipment getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(Equipment equipment) {
+		this.equipment = equipment;
 	}
 }

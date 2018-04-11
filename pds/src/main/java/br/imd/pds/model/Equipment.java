@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
@@ -33,11 +35,15 @@ public class Equipment {
 	@Column(name="status")
 	private String status;
 	
-//	@OneToMany
+	@ManyToOne
+	@JoinColumn(name="sector_id")
+	private Sector sector;
+	
+//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentCharacteristc.class)
 	@Transient
 	private ArrayList<EquipmentCharacteristic> characteristics;
 	
-//	@OneToMany
+//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentHistoric.class)
 	@Transient
 	private ArrayList<EquipmentHistoric> historic;
 	
@@ -152,5 +158,13 @@ public class Equipment {
 
 	public void setHistoric(ArrayList<EquipmentHistoric> historic) {
 		this.historic = historic;
+	}
+	
+	public Sector getSector() {
+		return sector;
+	}
+
+	public void setSector(Sector sector) {
+		this.sector = sector;
 	}
 }

@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class EquipmentHistoric {
@@ -20,6 +22,10 @@ public class EquipmentHistoric {
 	@Column(name="date")
 	private Date date;
 	
+	@ManyToOne
+	@JoinColumn(name="equipment_id")
+	Equipment equipment;
+
 	public EquipmentHistoric() {
 	}
 	
@@ -56,5 +62,13 @@ public class EquipmentHistoric {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+	
+	public Equipment getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(Equipment equipment) {
+		this.equipment = equipment;
 	}
 }
