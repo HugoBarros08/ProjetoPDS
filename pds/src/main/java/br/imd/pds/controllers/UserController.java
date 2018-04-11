@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -56,16 +57,23 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String newUser(User user) {
+	public String newUser(@ModelAttribute User user) {
 		try {
-			user.setCpf("08635131321");
-			user.setName("Heytor");
-			user.setEmail("hmesquita26@outlook.com");
 			managementUser.insertUser(user);
 		} catch (ExistentObjectException e) {
 			e.printStackTrace();
 		}
-		return ("redirect:/list.html");
+		return "users/list";
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public String userForm(Model model) {
+		model.addAttribute("users", new User());
+		return "users";
 	}
 
 	public ManagementUserService getManagementUser() {

@@ -36,6 +36,14 @@ public class User {
 		this.flag = true;
 	}
 	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
 	public void setCpf(String cpf)
 	{
 		this.cpf = cpf;
@@ -78,13 +86,5 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", cpf=" + cpf + ", name=" + name + ", email=" + email + "]";
 	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	
 }
