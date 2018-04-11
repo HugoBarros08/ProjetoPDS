@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -32,15 +33,20 @@ public class Equipment {
 	@Column(name="status")
 	private String status;
 	
-	@OneToMany
+//	@OneToMany
+	@Transient
 	private ArrayList<EquipmentCharacteristic> characteristics;
 	
-	@OneToMany
+//	@OneToMany
+	@Transient
 	private ArrayList<EquipmentHistoric> historic;
 	
 	public static final String green = "green";
 	public static final String orange = "orange";
 	public static final String red = "red";
+	
+	public Equipment() {
+	}
 	
 	public Equipment(long id, String serial, String tumber, Date registration, Date lastMaintenance)
 	{
@@ -134,5 +140,17 @@ public class Equipment {
 	public ArrayList<EquipmentHistoric> getHistoric()
 	{
 		return this.historic;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setCharacteristics(ArrayList<EquipmentCharacteristic> characteristics) {
+		this.characteristics = characteristics;
+	}
+
+	public void setHistoric(ArrayList<EquipmentHistoric> historic) {
+		this.historic = historic;
 	}
 }

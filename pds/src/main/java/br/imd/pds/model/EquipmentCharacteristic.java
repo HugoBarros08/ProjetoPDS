@@ -19,6 +19,9 @@ public class EquipmentCharacteristic {
 	@Column(name="value")
 	private String value;
 	
+	public EquipmentCharacteristic() {
+	}
+	
 	public EquipmentCharacteristic(long id, String name, String value)
 	{
 		this.id = id;

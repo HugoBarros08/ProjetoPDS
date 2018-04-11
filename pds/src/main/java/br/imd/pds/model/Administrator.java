@@ -27,6 +27,9 @@ public class Administrator {
 	@Column(name="email")
 	private String email;
 	
+	public Administrator() {
+	}
+	
 	public Administrator(String cpf, String name, String username, String password, String email)
 	{
 		this.cpf = cpf;
@@ -84,5 +87,13 @@ public class Administrator {
 	public void setEmail(String email)
 	{
 		this.email = email;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }
