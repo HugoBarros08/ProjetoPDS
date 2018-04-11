@@ -54,7 +54,9 @@ public class ManagementUserService {
 	
 	public void updateUser(User user, String cpf) throws InexistentObjectException, ExistentObjectException {
 		User foundUser = searchUser(cpf);
-		deleteUser(foundUser);
-		insertUser(user);
+		
+		foundUser.setCpf(user.getCpf());
+		foundUser.setEmail(user.getEmail());
+		foundUser.setName(user.getName());
 	}
 }
