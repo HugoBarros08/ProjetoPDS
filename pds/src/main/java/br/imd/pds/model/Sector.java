@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Sector {
@@ -17,11 +18,16 @@ public class Sector {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany
+//	@OneToMany
+	@Transient
 	private ArrayList<Equipment> equipment;
 	
-	@OneToMany
+//	@OneToMany
+	@Transient
 	private ArrayList<User> leader;
+	
+	public Sector() {
+	}
 	
 	public Sector(long id, String name, ArrayList<Equipment> equipment, ArrayList<User> leader)
 	{
@@ -65,5 +71,21 @@ public class Sector {
 	public void notfy() 
 	{
 		
+	}
+
+	public ArrayList<Equipment> getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(ArrayList<Equipment> equipment) {
+		this.equipment = equipment;
+	}
+
+	public ArrayList<User> getLeader() {
+		return leader;
+	}
+
+	public void setLeader(ArrayList<User> leader) {
+		this.leader = leader;
 	}
 }

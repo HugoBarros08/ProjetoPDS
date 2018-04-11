@@ -1,0 +1,19 @@
+<html>
+
+	<body>
+		
+		<h1>Users Page</h1>
+		
+		
+		<table>
+		   <th:block th:each="user : ${users}">
+		      <tr>
+		         <td th:text="${user.id}">...</td>
+		         <td th:text="${user.name}">...</td>
+		      </tr>
+		   </th:block>
+		</table>
+	
+	</body>
+
+</html>

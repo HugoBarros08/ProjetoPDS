@@ -25,6 +25,9 @@ public class User {
 	@Column(name="flag_user")
 	private boolean flag;
 
+	public User() {
+	}
+	
 	public User(String cpf, String name, String email)
 	{
 		this.cpf = cpf;
@@ -74,6 +77,14 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", cpf=" + cpf + ", name=" + name + ", email=" + email + "]";
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 }

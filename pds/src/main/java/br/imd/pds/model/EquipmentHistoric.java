@@ -20,6 +20,9 @@ public class EquipmentHistoric {
 	@Column(name="date")
 	private Date date;
 	
+	public EquipmentHistoric() {
+	}
+	
 	public EquipmentHistoric(long id, String log, Date date)
 	{
 		this.id = id;
@@ -45,5 +48,13 @@ public class EquipmentHistoric {
 	public void setLog(String log)
 	{
 		this.log = log;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }
