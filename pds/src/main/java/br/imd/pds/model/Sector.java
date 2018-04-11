@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 @Entity
 public class Sector {
@@ -17,26 +18,31 @@ public class Sector {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany
-	private ArrayList<Equipment> equipment;
+//	@OneToMany(mappedBy = “sector”, targetEntity = Equipment.class)
+	@Transient
+	private ArrayList<Equipment> equipments;
 	
-	@OneToMany
-	private ArrayList<User> leader;
+//	@OneToMany(mappedBy = “sector”, targetEntity = User.class)
+	@Transient
+	private ArrayList<User> leaders;
 	
-	public Sector(long id, String name, ArrayList<Equipment> equipment, ArrayList<User> leader)
+	public Sector() {
+	}
+	
+	public Sector(long id, String name, ArrayList<Equipment> equipments, ArrayList<User> leaders)
 	{
 		this.id = id;
 		this.name = name;
-		this.equipment = equipment;
-		this.leader = leader;
+		this.equipments = equipments;
+		this.leaders = leaders;
 	}
 	
 	public Sector(long id, String name)
 	{
 		this.id = id;
 		this.name = name;
-		this.equipment = new ArrayList<Equipment>();
-		this.leader = new ArrayList<User>();
+		this.equipments = new ArrayList<Equipment>();
+		this.leaders = new ArrayList<User>();
 	}
 	
 	public long getId()
@@ -57,13 +63,24 @@ public class Sector {
 		return name;
 	}
 
-	public ArrayList<Equipment> getEquipments(){
-		return equipment;
-	}
-		
-
 	public void notfy() 
 	{
 		
+	}
+
+	public ArrayList<Equipment> getEquipments(){
+		return equipments;
+	}
+	
+	public void setEquipments(ArrayList<Equipment> equipment) {
+		this.equipments = equipment;
+	}
+
+	public ArrayList<User> getLeader() {
+		return leaders;
+	}
+
+	public void setLeaders(ArrayList<User> leaders) {
+		this.leaders = leaders;
 	}
 }

@@ -1,4 +1,4 @@
-package br.imd.pds.pds;
+package br.imd.pds;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

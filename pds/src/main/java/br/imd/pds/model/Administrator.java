@@ -27,6 +27,12 @@ public class Administrator {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="flag_administrator")
+	private boolean flag;
+
+	public Administrator() {
+	}
+	
 	public Administrator(String cpf, String name, String username, String password, String email)
 	{
 		this.cpf = cpf;
@@ -84,5 +90,21 @@ public class Administrator {
 	public void setEmail(String email)
 	{
 		this.email = email;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	public boolean getFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 }

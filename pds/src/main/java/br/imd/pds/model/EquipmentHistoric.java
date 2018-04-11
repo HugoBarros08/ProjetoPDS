@@ -6,6 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class EquipmentHistoric {
@@ -19,6 +21,13 @@ public class EquipmentHistoric {
 	
 	@Column(name="date")
 	private Date date;
+	
+	@ManyToOne
+	@JoinColumn(name="equipment_id")
+	Equipment equipment;
+
+	public EquipmentHistoric() {
+	}
 	
 	public EquipmentHistoric(long id, String log, Date date)
 	{
@@ -45,5 +54,21 @@ public class EquipmentHistoric {
 	public void setLog(String log)
 	{
 		this.log = log;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
+	public Equipment getEquipment() {
+		return equipment;
+	}
+
+	public void setEquipment(Equipment equipment) {
+		this.equipment = equipment;
 	}
 }

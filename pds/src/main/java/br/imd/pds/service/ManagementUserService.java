@@ -1,12 +1,13 @@
 package br.imd.pds.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.imd.pds.helpers.ExistentObjectException;
 import br.imd.pds.helpers.InexistentObjectException;
 import br.imd.pds.model.User;
-import br.imd.pds.repository.AdministratorRepository;
 import br.imd.pds.repository.UserRepository;
 
 @Service
@@ -15,17 +16,11 @@ public class ManagementUserService {
 	@Autowired
 	private UserRepository repository;
 	
-	public UserRepository getRepository() {
-		return repository;
+	
+	public List<User> listUser() {
+		return repository.findAll();
 	}
 
-	public void setRepository(UserRepository repository) {
-		this.repository = repository;
-	}
-
-	public ManagementUserService(UserRepository repository) {
-	 this.repository = repository;
-	}
 	
 	public void insertUser(User user) throws ExistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
@@ -56,9 +51,8 @@ public class ManagementUserService {
 			}
 	}
 	
-	public void updateUser(User user, String cpf) throws InexistentObjectException, ExistentObjectException {
+	public void updateUser(User user, String cpf) throws InexistentObjectException {
 		User foundUser = searchUser(cpf);
-		
 		foundUser.setCpf(user.getCpf());
 		foundUser.setEmail(user.getEmail());
 		foundUser.setName(user.getName());
