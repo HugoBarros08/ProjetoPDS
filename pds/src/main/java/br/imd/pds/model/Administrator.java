@@ -27,6 +27,9 @@ public class Administrator {
 	@Column(name="email")
 	private String email;
 	
+	@Column(name="flag_administrator")
+	private boolean flag;
+
 	public Administrator() {
 	}
 	
@@ -95,5 +98,13 @@ public class Administrator {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public boolean getFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 }

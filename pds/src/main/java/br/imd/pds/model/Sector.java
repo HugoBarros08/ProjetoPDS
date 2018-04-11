@@ -18,31 +18,31 @@ public class Sector {
 	@Column(name="name")
 	private String name;
 	
-//	@OneToMany
+//	@OneToMany(mappedBy = “sector”, targetEntity = Equipment.class)
 	@Transient
-	private ArrayList<Equipment> equipment;
+	private ArrayList<Equipment> equipments;
 	
-//	@OneToMany
+//	@OneToMany(mappedBy = “sector”, targetEntity = User.class)
 	@Transient
-	private ArrayList<User> leader;
+	private ArrayList<User> leaders;
 	
 	public Sector() {
 	}
 	
-	public Sector(long id, String name, ArrayList<Equipment> equipment, ArrayList<User> leader)
+	public Sector(long id, String name, ArrayList<Equipment> equipments, ArrayList<User> leaders)
 	{
 		this.id = id;
 		this.name = name;
-		this.equipment = equipment;
-		this.leader = leader;
+		this.equipments = equipments;
+		this.leaders = leaders;
 	}
 	
 	public Sector(long id, String name)
 	{
 		this.id = id;
 		this.name = name;
-		this.equipment = new ArrayList<Equipment>();
-		this.leader = new ArrayList<User>();
+		this.equipments = new ArrayList<Equipment>();
+		this.leaders = new ArrayList<User>();
 	}
 	
 	public long getId()
@@ -63,29 +63,24 @@ public class Sector {
 		return name;
 	}
 
-	public ArrayList<Equipment> getEquipments(){
-		return equipment;
-	}
-		
-
 	public void notfy() 
 	{
 		
 	}
 
-	public ArrayList<Equipment> getEquipment() {
-		return equipment;
+	public ArrayList<Equipment> getEquipments(){
+		return equipments;
 	}
-
-	public void setEquipment(ArrayList<Equipment> equipment) {
-		this.equipment = equipment;
+	
+	public void setEquipments(ArrayList<Equipment> equipment) {
+		this.equipments = equipment;
 	}
 
 	public ArrayList<User> getLeader() {
-		return leader;
+		return leaders;
 	}
 
-	public void setLeader(ArrayList<User> leader) {
-		this.leader = leader;
+	public void setLeaders(ArrayList<User> leaders) {
+		this.leaders = leaders;
 	}
 }

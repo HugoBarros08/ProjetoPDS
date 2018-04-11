@@ -53,10 +53,11 @@ public class ManagementAdministratorService {
 		}
 	}
 
-	public void updateAdministrator(Administrator administrator, String cpf) throws InexistentObjectException, ExistentObjectException {
+	public void updateAdministrator(Administrator administrator, String cpf) throws InexistentObjectException {
 		Administrator foundAdministrator = searchAdministrator(cpf);
-		deleteAdministrator(foundAdministrator);
-		insertAdministrator(administrator);
+		foundAdministrator.setCpf(administrator.getCpf());
+		foundAdministrator.setEmail(administrator.getEmail());
+		foundAdministrator.setName(administrator.getName());
 	}
 
 }

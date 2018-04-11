@@ -2,6 +2,7 @@ package br.imd.pds.service;
 
 import br.imd.pds.helpers.*;
 import br.imd.pds.model.Sector;
+import br.imd.pds.model.User;
 import br.imd.pds.repository.SectorRepository;
 
 import java.io.InvalidObjectException;
@@ -19,24 +20,40 @@ public class ManagementSectorService {
 		this.repository = repository;
 	}
 	
-	public void createSector(Sector sector) throws ExistentObjectException {
-
+	public void insertSector(Sector sector) throws ExistentObjectException {
+		if (sector != null && !sector.getName().isEmpty()) {
+			if (repository.findByName(sector.getName()) == null) {
+				repository.save(sector);
+			} else {
+				throw new ExistentObjectException("Já existe um departamento registrado com esse nome.");
+			}
+		}
 	}
 	
-	public void deleteSector(String name) throws InexistentObjectException {
-	
+	public void deleteSector(Sector sector) throws InexistentObjectException {
+		if (sector != null && !sector.getName().isEmpty()) {
+			Sector toBeDeleted = repository.findByName(sector.getName());
+			if (toBeDeleted != null) {
+				repository.delete(toBeDeleted);
+			} else {
+				throw new InexistentObjectException("Setor não encontrado.");
+			}
+		}
 	}
 	
-	public void updateSector() throws ExistentObjectException, InexistentObjectException
+	public void updateSector(Sector sector, String name) throws InexistentObjectException
 	{
-		
+		Sector foundSector = searchSector(name);
+		foundSector.setName(sector.getName());
 	}
 	
-	public Sector searchSector(String name) throws InexistentObjectException {
-		
-		Sector sec = null;
-		
-		return sec;
+	public Sector searchSector(String name) throws InexistentObjectException {		
+		Sector foundSector = repository.findByName(name);
+		if(foundSector!=null) {
+			return foundSector;
+		} else {
+			throw new InexistentObjectException("Setor não encontrado.");
+		}
 	}
 	
 	public void schedule() {
