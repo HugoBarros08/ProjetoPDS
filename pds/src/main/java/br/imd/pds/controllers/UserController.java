@@ -52,6 +52,16 @@ public class UserController {
 	}
 	
 	/**
+	 * 
+	 * @return
+	 */
+	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	public String userForm(Model model) {
+		model.addAttribute("users", new User());
+		return "users/newuser";
+	}
+	
+	/**
 	 * Creates a user
 	 * @param user
 	 * @return
@@ -66,15 +76,7 @@ public class UserController {
 		return "users/list";
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String userForm(Model model) {
-		model.addAttribute("users", new User());
-		return "users";
-	}
+
 
 	public ManagementUserService getManagementUser() {
 		return managementUser;
