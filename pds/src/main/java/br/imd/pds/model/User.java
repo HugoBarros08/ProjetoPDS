@@ -21,12 +21,16 @@ public class User {
 
 	@Column(name="email")
 	private String email;
+	
+	@Column(name="flag_user")
+	private boolean flag;
 
 	public User(String cpf, String name, String email)
 	{
 		this.cpf = cpf;
 		this.name = name;
 		this.email = email;
+		this.flag = true;
 	}
 	
 	public void setCpf(String cpf)
@@ -57,6 +61,14 @@ public class User {
 	public String getEmail()
 	{
 		return email;
+	}
+	
+	public boolean getFlag() {
+		return flag;
+	}
+
+	public void setFlag(boolean flag) {
+		this.flag = flag;
 	}
 
 	@Override

@@ -31,6 +31,8 @@ public class ManagementUserService {
 		if (user != null && !user.getCpf().isEmpty()) {
 			if (repository.findByCpf(user.getCpf()) == null) {
 				repository.save(user);
+			} else {
+				throw new ExistentObjectException("User found.");
 			}
 		}
 	}
@@ -39,6 +41,8 @@ public class ManagementUserService {
 		if (user != null && !user.getCpf().isEmpty()) {
 			if (repository.findByCpf(user.getCpf()) != null) {
 				repository.delete(user);
+			} else {
+				throw new InexistentObjectException("User not found.");
 			}
 		}
 	}
@@ -48,7 +52,7 @@ public class ManagementUserService {
 			if (user != null) {
 				return user;
 			} else {
-				throw new InexistentObjectException("Usuário não encontrado.");
+				throw new InexistentObjectException("User not found.");
 			}
 	}
 	
