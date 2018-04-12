@@ -1,0 +1,19 @@
+<html>
+
+	<body>
+		
+		<h1>Administrators Page</h1>
+		
+		
+		<table>
+		   <th:block th:each="administrator : ${admin}">
+		      <tr>
+		         <td th:text="${administrator.id}">...</td>
+		         <td th:text="${administrator.name}">...</td>
+		      </tr>
+		   </th:block>
+		</table>
+	
+	</body>
+
+</html>
