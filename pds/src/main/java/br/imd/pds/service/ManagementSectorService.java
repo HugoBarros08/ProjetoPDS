@@ -2,10 +2,7 @@ package br.imd.pds.service;
 
 import br.imd.pds.helpers.*;
 import br.imd.pds.model.Sector;
-import br.imd.pds.model.User;
 import br.imd.pds.repository.SectorRepository;
-
-import java.io.InvalidObjectException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

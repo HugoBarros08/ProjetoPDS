@@ -17,7 +17,7 @@ public class ManagementEquipmentCharacteristicService {
 		this.repository = repository;
 	}
 	
-	public void createEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException, ExistentObjectException {
+	public void insertEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException, ExistentObjectException {
 
 		
 	}

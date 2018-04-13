@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import br.imd.pds.helpers.ExistentObjectException;
 import br.imd.pds.helpers.InexistentObjectException;
 import br.imd.pds.model.Administrator;
-import br.imd.pds.model.User;
 import br.imd.pds.repository.AdministratorRepository;
-import br.imd.pds.repository.UserRepository;
 
 @Service
 public class ManagementAdministratorService {

@@ -17,7 +17,7 @@ public class ManagementEquipmentHistoricService {
 		this.repository = repository;
 	}
 
-	public void createEquipmentHistoric(EquipmentHistoric equipmentHistoric) throws InexistentObjectException {
+	public void insertEquipmentHistoric(EquipmentHistoric equipmentHistoric) throws InexistentObjectException {
 	
 	}
 
