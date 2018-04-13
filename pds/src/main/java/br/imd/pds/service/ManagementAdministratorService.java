@@ -36,15 +36,16 @@ public class ManagementAdministratorService {
 		if (administrator != null && !administrator.getCpf().isEmpty()) {
 			if (repository.findByCpf(administrator.getCpf()) == null) {
 				repository.save(administrator);
+			} else {
+				throw new ExistentObjectException("Já existe um administrador registrado com esse CPF");
 			}
 		}
 	}
 
 	public void deleteAdministrator(Administrator administrator) throws InexistentObjectException {
 		if (administrator != null && !administrator.getCpf().isEmpty()) {
-			if (repository.findByCpf(administrator.getCpf()) != null) {
-				repository.delete(administrator);
-			}
+			Administrator adm = this.searchAdministrator(administrator.getCpf());
+			adm.setFlag(false);
 		}
 	}
 
