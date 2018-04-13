@@ -18,7 +18,7 @@ public class ManagementEquipmentService {
 	}
 		
 	public void insertEquipment(Equipment equipment) throws ExistentObjectException {
-		if (equipment != null && !equipment.getSerialNumber().isEmpty() &&!equipment.getTumberNumber().isEmpty()) {
+		if (equipment != null && !equipment.getSerialNumber().isEmpty() && !equipment.getTumberNumber().isEmpty()) {
 			if (repository.findByTumberNumber(equipment.getTumberNumber()) == null && repository.findBySerialNumber(equipment.getSerialNumber()) == null) {
 				repository.save(equipment);
 			} else {
