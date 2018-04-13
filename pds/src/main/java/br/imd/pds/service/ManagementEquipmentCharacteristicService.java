@@ -18,6 +18,14 @@ public class ManagementEquipmentCharacteristicService {
 		this.repository = repository;
 	}
 	
+	public EquipmentCharacteristicRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(EquipmentCharacteristicRepository repository) {
+		this.repository = repository;
+	}
+	
 	public void insertEquipmentCharacteristic(EquipmentCharacteristic equipmentCharacteristic) throws ExistentObjectException {
 		if (equipmentCharacteristic != null && !equipmentCharacteristic.getName().isEmpty()) {
 			if (repository.findByName(equipmentCharacteristic.getName()) == null) {
@@ -30,34 +38,22 @@ public class ManagementEquipmentCharacteristicService {
 	
 	public void removeEquipmentCharacteristic(EquipmentCharacteristic equipmentCharacteristic) throws InexistentObjectException {
 		if (equipmentCharacteristic != null && !equipmentCharacteristic.getName().isEmpty()) {
-			EquipmentCharacteristic toBeDeleted = repository.findByName(equipmentCharacteristic.getName());
-			if (toBeDeleted != null) {
-				repository.delete(toBeDeleted);
-			} else {
-				throw new InexistentObjectException("Característica não encontrada.");
-			}
+			EquipmentCharacteristic toBeDeleted = searchEquipmentCharacteristic(equipmentCharacteristic.getName());
+			repository.delete(toBeDeleted);
 		}
 	}
 	
 	public void updateEquipmentCharacteristic(EquipmentCharacteristic equipmentCharacteristic, String name) throws InexistentObjectException {
-		EquipmentCharacteristic equipmentCharacteristicFound = searchEquipmentCharacteristic(name);
-		equipmentCharacteristicFound.setName(equipmentCharacteristic.getName());
+		EquipmentCharacteristic foundEquipmentCharacteristic = searchEquipmentCharacteristic(name);
+		foundEquipmentCharacteristic.setName(equipmentCharacteristic.getName());
 	}
 	
 	public EquipmentCharacteristic searchEquipmentCharacteristic(String name) throws InexistentObjectException {
-		EquipmentCharacteristic equipmentCharacteristicFound = repository.findByName(name);
-		if(equipmentCharacteristicFound!=null) {
-			return equipmentCharacteristicFound;
+		EquipmentCharacteristic foundEquipmentCharacteristic = repository.findByName(name);
+		if(foundEquipmentCharacteristic!=null) {
+			return foundEquipmentCharacteristic;
 		} else {
 			throw new InexistentObjectException("Característica não encontrada.");
 		}
-	}
-
-	public EquipmentCharacteristicRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(EquipmentCharacteristicRepository repository) {
-		this.repository = repository;
 	}
 }
