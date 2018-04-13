@@ -17,12 +17,11 @@ public class ManagementEquipmentCharacteristicService {
 		this.repository = repository;
 	}
 	
-	public void insertEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException, ExistentObjectException {
-
-		
+	public void insertEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws ExistentObjectException {
+				
 	}
 	
-	public void removeEquipmentCharacteristic(int id) throws InexistentObjectException {
+	public void removeEquipmentCharacteristic(EquipmentCharacteristic equipmentCharac) throws InexistentObjectException {
 
 	}
 	

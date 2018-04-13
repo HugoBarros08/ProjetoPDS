@@ -1,7 +1,5 @@
 package br.imd.pds.service;
 
-import java.io.InvalidObjectException;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,17 +16,7 @@ public class ManagementEquipmentService {
 	public ManagementEquipmentService(EquipmentRepository repository) {
 		this.repository = repository;
 	}
-	
-	private void validade(Equipment equipment) throws InvalidObjectException {
 		
-		throw new InvalidObjectException("");
-	}
-	
-	public boolean validateObjEquipment() throws InvalidObjectException {
-		
-		return false;
-	}
-	
 	public void insertEquipment(Equipment equipment) throws ExistentObjectException {
 		if (equipment != null && !equipment.getSerialNumber().isEmpty() &&!equipment.getTumberNumber().isEmpty()) {
 			if (repository.findByTumberNumber(equipment.getTumberNumber()) == null && repository.findBySerialNumber(equipment.getSerialNumber()) == null) {

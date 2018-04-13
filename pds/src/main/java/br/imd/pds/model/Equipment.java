@@ -54,9 +54,8 @@ public class Equipment {
 	public Equipment() {
 	}
 	
-	public Equipment(long id, String serial, String tumber, Date registration, Date lastMaintenance)
+	public Equipment(String serial, String tumber, Date registration, Date lastMaintenance)
 	{
-		this.id = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
 		this.registrationDate = registration;
@@ -67,9 +66,8 @@ public class Equipment {
 		this.historic = new ArrayList<EquipmentHistoric>();
 	}
 
-	public Equipment(long id, String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
+	public Equipment(String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
 	{
-		this.id = id;
 		this.serialNumber = serial;
 		this.tumberNumber = tumber;
 		this.registrationDate = product;
@@ -83,7 +81,7 @@ public class Equipment {
 		return this.id;
 	}
 	
-	public void setEquipmentId(int id)
+	public void setId(int id)
 	{
 		this.id = id;
 	}

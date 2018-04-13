@@ -29,9 +29,8 @@ public class EquipmentHistoric {
 	public EquipmentHistoric() {
 	}
 	
-	public EquipmentHistoric(long id, String log, Date date)
+	public EquipmentHistoric(String log, Date date)
 	{
-		this.id = id;
 		this.log = log;
 		this.date = date;
 	}

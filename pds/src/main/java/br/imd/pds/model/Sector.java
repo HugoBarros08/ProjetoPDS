@@ -29,9 +29,8 @@ public class Sector {
 	public Sector() {
 	}
 	
-	public Sector(long id, String name, ArrayList<Equipment> equipments, ArrayList<User> leaders)
+	public Sector(String name, ArrayList<Equipment> equipments, ArrayList<User> leaders)
 	{
-		this.id = id;
 		this.name = name;
 		this.equipments = equipments;
 		this.leaders = leaders;

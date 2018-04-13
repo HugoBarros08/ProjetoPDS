@@ -20,9 +20,9 @@ public class EquipmentRepositoryTest {
 	@Test
 	public void testRepository(){
 		
-		repository.save(new Equipment(501, "BRT852RFTQ", "2012005412", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
-		repository.save(new Equipment(502, "BRT852RFTF", "2012005415", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
-		repository.save(new Equipment(503, "BRT852RFTB", "2012005413", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
+		repository.save(new Equipment("BRT852RFTQ", "2012005412", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
+		repository.save(new Equipment("BRT852RFTF", "2012005415", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
+		repository.save(new Equipment("BRT852RFTB", "2012005413", Calendar.getInstance().getTime(), Calendar.getInstance().getTime()));
 	
 		final List<Equipment> equipments = repository.findAll();
 		System.out.println(equipments);

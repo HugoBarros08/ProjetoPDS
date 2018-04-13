@@ -28,9 +28,8 @@ public class EquipmentCharacteristic {
 	public EquipmentCharacteristic() {
 	}
 	
-	public EquipmentCharacteristic(long id, String name, String value)
+	public EquipmentCharacteristic(String name, String value)
 	{
-		this.id = id;
 		this.name = name;
 		this.value = value;
 	}
