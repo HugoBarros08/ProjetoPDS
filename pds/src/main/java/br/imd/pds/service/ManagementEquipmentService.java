@@ -1,5 +1,7 @@
 package br.imd.pds.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,10 @@ public class ManagementEquipmentService {
 	
 	@Autowired
 	private EquipmentRepository repository;
+	
+	public List<Equipment> listEquipment() {
+		return repository.findAll();
+	}
 	
 	public ManagementEquipmentService(EquipmentRepository repository) {
 		this.repository = repository;

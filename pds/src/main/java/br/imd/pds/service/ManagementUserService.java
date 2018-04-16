@@ -15,13 +15,11 @@ public class ManagementUserService {
 	
 	@Autowired
 	private UserRepository repository;
-	
-	
+		
 	public List<User> listUser() {
 		return repository.findAll();
 	}
 
-	
 	public void insertUser(User user) throws ExistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
 			if (repository.findByCpf(user.getCpf()) == null) {

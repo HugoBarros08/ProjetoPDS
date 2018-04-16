@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Cadastrar Equipamento</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+	<form action="#" th:action="@{/equipments/}" th:object="${equipments}" method="post">
+    	<p>Número de série: <input type="text" th:field="*{serial_number}" /></p>
+        <p>Número de tombo: <input type="text" th:field="*{tumber_number}" /></p>
+        <p>Data de aquisição: <input type="text" th:field="*{registration_date}" /></p>
+        <p>Data da última manutenção: <input type="text" th:field="*{last_maintenence}" /></p>
+        <p>Status: <input type="text" th:field="*{status}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

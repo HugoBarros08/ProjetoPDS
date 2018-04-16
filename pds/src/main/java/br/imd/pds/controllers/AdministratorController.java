@@ -31,7 +31,7 @@ public class AdministratorController {
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
 	public String administratorForm(Model model) {
 		model.addAttribute("admin", new Administrator());
-		return "admin/newadministrator";
+		return "admin/newAdministrator";
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.POST)
