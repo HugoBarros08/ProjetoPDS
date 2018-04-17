@@ -17,6 +17,14 @@ public class ManagementSectorService {
 		this.repository = repository;
 	}
 	
+	public SectorRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(SectorRepository repository) {
+		this.repository = repository;
+	}
+	
 	public void insertSector(Sector sector) throws ExistentObjectException {
 		if (sector != null && !sector.getName().isEmpty()) {
 			if (repository.findByName(sector.getName()) == null) {
@@ -29,12 +37,8 @@ public class ManagementSectorService {
 	
 	public void deleteSector(Sector sector) throws InexistentObjectException {
 		if (sector != null && !sector.getName().isEmpty()) {
-			Sector toBeDeleted = repository.findByName(sector.getName());
-			if (toBeDeleted != null) {
-				repository.delete(toBeDeleted);
-			} else {
-				throw new InexistentObjectException("Setor não encontrado.");
-			}
+			Sector toBeDeleted = this.searchSector(sector.getName());
+			repository.delete(toBeDeleted);
 		}
 	}
 	
@@ -59,13 +63,5 @@ public class ManagementSectorService {
 	
 	public void reschedule() {
 		
-	}
-
-	public SectorRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(SectorRepository repository) {
-		this.repository = repository;
 	}
 }

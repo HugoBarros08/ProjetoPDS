@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import br.imd.pds.helpers.*;
 import br.imd.pds.model.EquipmentCharacteristic;
-import br.imd.pds.model.Sector;
 import br.imd.pds.repository.EquipmentCharacteristicRepository;
 
 @Service

@@ -25,18 +25,15 @@ public class ManagementUserService {
 			if (repository.findByCpf(user.getCpf()) == null) {
 				repository.save(user);
 			} else {
-				throw new ExistentObjectException("User found.");
+				throw new ExistentObjectException("Já existe um usuário registrado com esse CPF.");
 			}
 		}
 	}
 	
 	public void deleteUser(User user) throws InexistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
-			if (repository.findByCpf(user.getCpf()) != null) {
-				repository.delete(user);
-			} else {
-				throw new InexistentObjectException("User not found.");
-			}
+			User toBeDeleted = searchUser(user.getCpf());
+			toBeDeleted.setFlag(false);
 		}
 	}
 	
@@ -45,7 +42,7 @@ public class ManagementUserService {
 			if (user != null) {
 				return user;
 			} else {
-				throw new InexistentObjectException("User not found.");
+				throw new InexistentObjectException("Usuário não encontrado.");
 			}
 	}
 	

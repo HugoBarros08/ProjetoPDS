@@ -22,30 +22,34 @@ public class ManagementEquipmentService {
 	public ManagementEquipmentService(EquipmentRepository repository) {
 		this.repository = repository;
 	}
+	
+	public EquipmentRepository getRepository() {
+		return repository;
+	}
+
+	public void setRepository(EquipmentRepository repository) {
+		this.repository = repository;
+	}
 		
 	public void insertEquipment(Equipment equipment) throws ExistentObjectException {
-		if (equipment != null && !equipment.getSerialNumber().isEmpty() && !equipment.getTumberNumber().isEmpty()) {
-			if (repository.findByTumberNumber(equipment.getTumberNumber()) == null && repository.findBySerialNumber(equipment.getSerialNumber()) == null) {
+		if (equipment != null && !equipment.getSerialNumber().isEmpty()) {
+			if (repository.findBySerialNumber(equipment.getSerialNumber()) == null) {
 				repository.save(equipment);
 			} else {
-				throw new ExistentObjectException("Já existe um equipamento registrado com o mesmo número de serial e/ou tombo.");
+				throw new ExistentObjectException("Já existe um equipamento registrado com esse número de serial.");
 			}
 		}
 	}
 	
 	public void deleteEquipment(Equipment equipment) throws InexistentObjectException {
-		if (equipment != null && !equipment.getSerialNumber().isEmpty() && !equipment.getTumberNumber().isEmpty()) {
-			Equipment toBeDeleted = repository.findByTumberNumber(equipment.getTumberNumber());
-			if (toBeDeleted != null && toBeDeleted.getSerialNumber() == equipment.getSerialNumber()) {
-				repository.delete(toBeDeleted);
-			} else {
-				throw new InexistentObjectException("Equipamento não encontrado.");
-			}
+		if (equipment != null && !equipment.getSerialNumber().isEmpty()) {
+			Equipment toBeDeleted = this.searchEquipmentBySerialNumber(equipment.getSerialNumber());
+			repository.delete(toBeDeleted);
 		}
 	}
 	
-	public void updateEquipment(Equipment equipment, String tumberNumber) throws InexistentObjectException {
-		Equipment foundEquipment = searchEquipmentByTumberNumber(tumberNumber);
+	public void updateEquipment(Equipment equipment, String serialNumber) throws InexistentObjectException {
+		Equipment foundEquipment = searchEquipmentBySerialNumber(serialNumber);
 		foundEquipment.setSerialNumber(equipment.getSerialNumber());
 		foundEquipment.setTumberNumber(equipment.getTumberNumber());
 		foundEquipment.setRegistrationDate(equipment.getRegistrationDate());
@@ -69,14 +73,5 @@ public class ManagementEquipmentService {
 		} else {
 			throw new InexistentObjectException("Equipamento não encontrado.");
 		}
-	}
-	
-	public EquipmentRepository getRepository() {
-		return repository;
-	}
-
-	public void setRepository(EquipmentRepository repository) {
-		this.repository = repository;
-	}
-	
+	}	
 }
