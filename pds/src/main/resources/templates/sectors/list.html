@@ -1,0 +1,19 @@
+<html>
+
+	<body>
+		
+		<h1>Sector Page</h1>
+		
+		
+		<table>
+		   <th:block th:each="setor : ${sector}">
+		      <tr>
+		         <td th:text="${sector.id}">...</td>
+		         <td th:text="${setor.name}">...</td>
+		      </tr>
+		   </th:block>
+		</table>
+	
+	</body>
+
+</html>
