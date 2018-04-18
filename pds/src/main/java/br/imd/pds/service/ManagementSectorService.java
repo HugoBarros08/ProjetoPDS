@@ -4,6 +4,8 @@ import br.imd.pds.helpers.*;
 import br.imd.pds.model.Sector;
 import br.imd.pds.repository.SectorRepository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,10 @@ public class ManagementSectorService {
 	
 	@Autowired
 	private SectorRepository repository;
+	
+	public List<Sector> listSector() {
+		return repository.findAll();
+	}
 	
 	public ManagementSectorService(SectorRepository repository) {
 		this.repository = repository;

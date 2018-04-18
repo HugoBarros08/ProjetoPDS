@@ -36,6 +36,7 @@ public class SectorController {
 	public String listSector(Model model) {
 		model.addAttribute("sector", managementSector.listSector());
 		return "sector/list";
+	}
 	
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
 	public String setorForm(Model model) {
