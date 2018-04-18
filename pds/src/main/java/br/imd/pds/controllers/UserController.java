@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.imd.pds.helpers.ExistentObjectException;
+import br.imd.pds.helpers.InexistentObjectException;
 import br.imd.pds.model.User;
 import br.imd.pds.service.ManagementUserService;
 
@@ -29,6 +30,12 @@ public class UserController {
 		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
 		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
 		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
+		
+		try {
+			managementUser.deleteUser(managementUser.searchUser("998877"));			
+		} catch(InexistentObjectException e) {
+			
+		}
 	}
 	
 	/**

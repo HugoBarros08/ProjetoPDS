@@ -10,5 +10,4 @@ public interface UserRepository extends JpaRepository<User,Long> {
 	
 	@Query("select u from User u where u.cpf = ?1")
 	public User findByCpf(String cpf);
-
 }

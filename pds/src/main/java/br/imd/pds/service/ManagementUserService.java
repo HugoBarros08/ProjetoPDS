@@ -33,7 +33,10 @@ public class ManagementUserService {
 	public void deleteUser(User user) throws InexistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
 			User toBeDeleted = searchUser(user.getCpf());
-			toBeDeleted.setFlag(false);
+			User toBeChanged = toBeDeleted;
+			repository.delete(toBeDeleted);
+			toBeChanged.setFlag(false);
+			repository.save(toBeChanged);
 		}
 	}
 	

@@ -6,7 +6,7 @@
 		
 		
 		<table>
-		   <th:block th:each="administrator : ${admin}">
+		   <th:block th:each="administrator : ${admin}" th:if="${administrator.flag} == true">
 		      <tr>
 		         <td th:text="${administrator.id}">...</td>
 		         <td th:text="${administrator.name}">...</td>

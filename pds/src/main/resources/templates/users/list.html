@@ -6,7 +6,7 @@
 		
 		
 		<table>
-		   <th:block th:each="user : ${users}">
+		   <th:block th:each="user : ${users}" th:if="${user.flag} == true">
 		      <tr>
 		         <td th:text="${user.id}">...</td>
 		         <td th:text="${user.name}">...</td>

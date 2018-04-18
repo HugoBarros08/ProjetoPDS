@@ -40,6 +40,7 @@ public class Administrator {
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.flag = true;
 	}
 
 	public String getCpf()

@@ -45,7 +45,10 @@ public class ManagementAdministratorService {
 	public void deleteAdministrator(Administrator administrator) throws InexistentObjectException {
 		if (administrator != null && !administrator.getCpf().isEmpty()) {
 			Administrator toBeDeleted = this.searchAdministrator(administrator.getCpf());
-			toBeDeleted.setFlag(false);
+			Administrator toBeChanged = toBeDeleted;
+			repository.delete(toBeDeleted);
+			toBeChanged.setFlag(false);
+			repository.save(toBeChanged);
 		}
 	}
 
