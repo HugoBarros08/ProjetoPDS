@@ -13,35 +13,28 @@ import br.imd.pds.model.Sector;
 import br.imd.pds.service.ManagementSectorService;
 
 @Controller
-@RequestMapping(value = "/sector")
+@RequestMapping(value = "/sectors")
 
 public class SectorController {
+	
 	@Autowired
 	private ManagementSectorService managementSector;
 
-	public ManagementSectorService getManagementSector() {
-		return managementSector;
-	}
-
-	public void setManagementSector(ManagementSectorService managementSector) {
-		this.managementSector = managementSector;
-	}
-
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public String getSector (@PathVariable Long id) {
-		return "sector/view";
+		return "sectors/view";
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String listSector(Model model) {
-		model.addAttribute("sector", managementSector.listSector());
-		return "sector/list";
+		model.addAttribute("sectors", managementSector.listSector());
+		return "sectors/list";
 	}
 	
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
-	public String setorForm(Model model) {
-		model.addAttribute("sector", new Sector());
-		return "sector/newSetor";
+	public String sectorForm(Model model) {
+		model.addAttribute("sectors", new Sector());
+		return "sectors/newSetor";
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)
@@ -51,7 +44,15 @@ public class SectorController {
 		} catch (ExistentObjectException e) {
 			e.printStackTrace();
 		}
-		return "sector/list";
+		return "sectors/list";
+	}
+	
+	public ManagementSectorService getManagementSector() {
+		return managementSector;
+	}
+	
+	public void setManagementSector(ManagementSectorService managementSector) {
+		this.managementSector = managementSector;
 	}
 
 }
