@@ -1,10 +1,12 @@
 package br.imd.pds.controllers;
 
 import javax.annotation.PostConstruct;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,18 +27,18 @@ public class UserController {
 	/**
 	 * Exemplo populando o banco de dados em memória.
 	 */
-	@PostConstruct
-	public void init() throws ExistentObjectException {
-		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
-		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
-		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
-		
-		try {
-			managementUser.deleteUser(managementUser.searchUser("998877"));			
-		} catch(InexistentObjectException e) {
-			
-		}
-	}
+//	@PostConstruct
+//	public void init() throws ExistentObjectException {
+//		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
+//		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
+//		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
+//		
+//		try {
+//			managementUser.deleteUser(managementUser.searchUser("998877"));			
+//		} catch(InexistentObjectException e) {
+//			
+//		}
+//	}
 	
 	/**
 	 * Return user with the given id
@@ -74,7 +76,12 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String newUser(@ModelAttribute User user) {
+	public String newUser(@Valid @ModelAttribute User user, BindingResult results) {
+		
+		if (results.hasErrors()) {
+			
+		}
+		
 		try {
 			managementUser.insertUser(user);
 		} catch (ExistentObjectException e) {

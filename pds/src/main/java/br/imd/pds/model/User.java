@@ -7,6 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class User {
@@ -15,12 +19,18 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	
+	@CPF
+	@NotNull
 	@Column(name="cpf")
 	private String cpf;
 	
+	@NotNull
+	@Size(max = 100)
 	@Column(name="name")
 	private String name;
-
+	
+	@NotNull
+	@Size(max = 100)
 	@Column(name="email")
 	private String email;
 	

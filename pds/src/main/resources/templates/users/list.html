@@ -9,7 +9,8 @@
 		   <th:block th:each="user : ${users}" th:if="${user.flag} == true">
 		      <tr>
 		         <td th:text="${user.id}">...</td>
-		         <td th:text="${user.name}">...</td>
+				 <td th:text="${user.name}">...</td>
+				 <td th:text="${user.cpf}">...</td>
 		      </tr>
 		   </th:block>
 		</table>
