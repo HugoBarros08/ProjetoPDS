@@ -63,13 +63,13 @@ public class User {
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+	private Set<UserRole> roles;
 
 	public User() {
 		
 	}
 	
-	public User(String cpf, String name, String username, String password, String email, Sector sector, Set<Role> roles) {
+	public User(String cpf, String name, String username, String password, String email, Sector sector, Set<UserRole> roles) {
 		super();
 		this.cpf = cpf;
 		this.name = name;
@@ -158,11 +158,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Set<Role> getRoles() {
+	public Set<UserRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(Set<UserRole> roles) {
 		this.roles = roles;
 	}
 
