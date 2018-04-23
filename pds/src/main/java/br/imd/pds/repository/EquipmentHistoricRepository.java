@@ -10,6 +10,5 @@ import br.imd.pds.model.EquipmentHistoric;
 @Repository
 public interface EquipmentHistoricRepository extends JpaRepository<EquipmentHistoric,Long>{
 
-	@Query("select u from EquipmentHistoric u where u.date = ?1")
 	public EquipmentHistoric findByDate(Date date);
 }

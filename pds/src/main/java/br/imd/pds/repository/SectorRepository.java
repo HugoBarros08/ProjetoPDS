@@ -9,6 +9,5 @@ import br.imd.pds.model.Sector;
 @Repository
 public interface SectorRepository extends JpaRepository<Sector,Long> {
 	
-	@Query("select u from Sector u where u.name = ?1")
 	public Sector findByName(String name);
 }
