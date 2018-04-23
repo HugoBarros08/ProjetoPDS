@@ -30,6 +30,7 @@ public class Sector {
 	private ArrayList<User> leaders;
 	
 	public Sector() {
+		
 	}
 	
 	public Sector(String name, ArrayList<Equipment> equipments, ArrayList<User> leaders)
@@ -65,7 +66,7 @@ public class Sector {
 		return name;
 	}
 
-	public void notfy() 
+	public void notifyUsers() 
 	{
 		
 	}

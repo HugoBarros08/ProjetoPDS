@@ -29,15 +29,7 @@ public class UserController {
 	 */
 	@PostConstruct
 	public void init() throws ExistentObjectException {
-		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
-		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
-		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
-		
-		try {
-			managementUser.deleteUser(managementUser.searchUser("998877"));			
-		} catch(InexistentObjectException e) {
-			
-		}
+
 	}
 	
 	/**
@@ -76,12 +68,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String newUser(@Valid @ModelAttribute User user, BindingResult results) {
-		
-		if (results.hasErrors()) {
-			
-		}
-		
+	public String newUser(@ModelAttribute User user) {
 		try {
 			managementUser.insertUser(user);
 		} catch (ExistentObjectException e) {
@@ -89,8 +76,6 @@ public class UserController {
 		}
 		return "users/list";
 	}
-	
-
 
 	public ManagementUserService getManagementUser() {
 		return managementUser;

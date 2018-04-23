@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import br.imd.pds.model.User;
 
-@Repository
+@Repository("userRepository")
 public interface UserRepository extends JpaRepository<User,Long> {
 	
 	@Query("select u from User u where u.cpf = ?1")
