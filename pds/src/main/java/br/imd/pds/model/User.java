@@ -12,6 +12,9 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+/**
+ * Classe responsável por moldar Usuários
+*/
 @Entity
 public class User {
 	

@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
+/**
+ * Classe responsável por moldar Setores
+*/
 @Entity
 public class Sector {
 	@Id

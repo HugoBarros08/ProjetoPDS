@@ -9,6 +9,9 @@ import br.imd.pds.helpers.*;
 import br.imd.pds.model.EquipmentHistoric;
 import br.imd.pds.repository.EquipmentHistoricRepository;
 
+/**
+ * Classe responsável por gerenciar os Históricos dos Equipamentos
+ */
 @Service
 public class ManagementEquipmentHistoricService {
 	
@@ -27,6 +30,9 @@ public class ManagementEquipmentHistoricService {
 		this.repository = repository;
 	}
 	
+	/**
+	 * Insere histórico do equipamento no repositório.
+	 */
 	public void insertEquipmentHistoric(EquipmentHistoric equipmentHistoric) throws ExistentObjectException {
 		if (equipmentHistoric != null && equipmentHistoric.getDate() != null && !equipmentHistoric.getLog().isEmpty()) {
 			if (repository.findByDate(equipmentHistoric.getDate()) == null) {
@@ -37,12 +43,18 @@ public class ManagementEquipmentHistoricService {
 		}
 	}
 	
+	/**
+	 * Atualiza histórico do equipamento do repositório.
+	 */
 	public void updateEquipmentHistoric(EquipmentHistoric equipmentHistoric, Date date) throws InexistentObjectException {
 		EquipmentHistoric foundEquipmentHistoric = searchEquipmentHistoric(date);
 		foundEquipmentHistoric.setDate(equipmentHistoric.getDate());
 		foundEquipmentHistoric.setLog(equipmentHistoric.getLog());
 	}
 	
+	/**
+	 * Busca histórico do equipamento no repositório através da data.
+	 */
 	public EquipmentHistoric searchEquipmentHistoric(Date date) throws InexistentObjectException {
 		EquipmentHistoric foundEquipmentHistoric = repository.findByDate(date);
 		if(foundEquipmentHistoric != null) {

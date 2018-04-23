@@ -5,6 +5,9 @@ import org.junit.Test;
 import br.imd.pds.model.User;
 import br.imd.pds.repository.UserRepository;
 
+/**
+ * Classe responsável por realizar teste do Usuário
+*/
 public class UserRepositoryTest {
 
 	UserRepository repository;

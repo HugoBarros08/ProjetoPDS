@@ -9,6 +9,9 @@ import br.imd.pds.helpers.*;
 import br.imd.pds.model.Equipment;
 import br.imd.pds.repository.EquipmentRepository;
 
+/**
+ * Classe responsável por gerenciar Equipamentos
+ */
 @Service
 public class ManagementEquipmentService {
 	
@@ -30,7 +33,10 @@ public class ManagementEquipmentService {
 	public void setRepository(EquipmentRepository repository) {
 		this.repository = repository;
 	}
-		
+	
+	/**
+	 * Inserindo um equipamento no repositório.
+	 */
 	public void insertEquipment(Equipment equipment) throws ExistentObjectException {
 		if (equipment != null && !equipment.getSerialNumber().isEmpty()) {
 			if (repository.findBySerialNumber(equipment.getSerialNumber()) == null) {
@@ -41,6 +47,9 @@ public class ManagementEquipmentService {
 		}
 	}
 	
+	/**
+	 * Removendo um equipamento do repositório.
+	 */
 	public void deleteEquipment(Equipment equipment) throws InexistentObjectException {
 		if (equipment != null && !equipment.getSerialNumber().isEmpty()) {
 			Equipment toBeDeleted = this.searchEquipmentBySerialNumber(equipment.getSerialNumber());
@@ -48,6 +57,9 @@ public class ManagementEquipmentService {
 		}
 	}
 	
+	/**
+	 * Atualizando um equipamento do repositório.
+	 */
 	public void updateEquipment(Equipment equipment, String serialNumber) throws InexistentObjectException {
 		Equipment foundEquipment = searchEquipmentBySerialNumber(serialNumber);
 		foundEquipment.setSerialNumber(equipment.getSerialNumber());
@@ -57,6 +69,9 @@ public class ManagementEquipmentService {
 		
 	}
 	
+	/**
+	 * Buscando um equipamento no repositório através do Número de Tombo.
+	 */
 	public Equipment searchEquipmentByTumberNumber(String tumberNumber) throws InexistentObjectException {
 		Equipment foundEquipment = repository.findByTumberNumber(tumberNumber);
 		if(foundEquipment!=null) {
@@ -66,6 +81,9 @@ public class ManagementEquipmentService {
 		}
 	}
 	
+	/**
+	 * Buscando um equipamento no repositório através do Número Serial.
+	 */
 	public Equipment searchEquipmentBySerialNumber(String serialNumber) throws InexistentObjectException {
 		Equipment foundEquipment = repository.findBySerialNumber(serialNumber);
 		if(foundEquipment!=null) {

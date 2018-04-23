@@ -10,6 +10,9 @@ import br.imd.pds.helpers.InexistentObjectException;
 import br.imd.pds.model.Administrator;
 import br.imd.pds.repository.AdministratorRepository;
 
+/**
+ * Classe responsável por gerenciar Administradores
+ */
 @Service
 public class ManagementAdministratorService {
 
@@ -17,7 +20,7 @@ public class ManagementAdministratorService {
 	private AdministratorRepository repository;
 	
 	public List<Administrator> listAdministrator() {
-		return repository.findAll();
+ 		return repository.findAll();
 	}
 
 	public AdministratorRepository getRepository() {
@@ -31,7 +34,10 @@ public class ManagementAdministratorService {
 	public ManagementAdministratorService(AdministratorRepository repository) {
 		 this.repository = repository;
 		}
-
+	
+	/**
+	 * Inserindo um administrador no repositório.
+	 */
 	public void insertAdministrator(Administrator administrator) throws ExistentObjectException {
 		if (administrator != null && !administrator.getCpf().isEmpty()) {
 			if (repository.findByCpf(administrator.getCpf()) == null) {
@@ -42,6 +48,9 @@ public class ManagementAdministratorService {
 		}
 	}
 
+	/**
+	 * Desativando um administrador.
+	 */
 	public void deleteAdministrator(Administrator administrator) throws InexistentObjectException {
 		if (administrator != null && !administrator.getCpf().isEmpty()) {
 			Administrator toBeDeleted = this.searchAdministrator(administrator.getCpf());
@@ -51,7 +60,11 @@ public class ManagementAdministratorService {
 			repository.save(toBeChanged);
 		}
 	}
-
+	
+	
+	/**
+	 * Buscando um administrador no repositório através do CPF.
+	 */
 	public Administrator searchAdministrator(String cpf) throws InexistentObjectException {
 		Administrator administrator = repository.findByCpf(cpf);
 		if (administrator != null) {
@@ -61,6 +74,10 @@ public class ManagementAdministratorService {
 		}
 	}
 
+	
+	/**
+	 * Atualizando um administrador do repositório.
+	 */
 	public void updateAdministrator(Administrator administrator, String cpf) throws InexistentObjectException {
 		Administrator foundAdministrator = searchAdministrator(cpf);
 		foundAdministrator.setCpf(administrator.getCpf());

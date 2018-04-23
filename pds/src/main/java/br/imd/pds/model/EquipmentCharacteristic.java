@@ -7,7 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
+/**
+ * Classe responsável por moldar Características de Equipamento
+*/
 @Entity
 public class EquipmentCharacteristic {
 	

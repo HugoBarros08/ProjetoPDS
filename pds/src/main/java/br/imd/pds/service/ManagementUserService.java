@@ -10,6 +10,9 @@ import br.imd.pds.helpers.InexistentObjectException;
 import br.imd.pds.model.User;
 import br.imd.pds.repository.UserRepository;
 
+/**
+ * Classe responsável por gerenciar Usuários
+ */
 @Service
 public class ManagementUserService {
 	
@@ -20,6 +23,9 @@ public class ManagementUserService {
 		return repository.findAll();
 	}
 
+	/**
+	 * Inserindo um usuário no repositório.
+	 */
 	public void insertUser(User user) throws ExistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
 			if (repository.findByCpf(user.getCpf()) == null) {
@@ -30,6 +36,9 @@ public class ManagementUserService {
 		}
 	}
 	
+	/**
+	 * Desativando um usuário.
+	 */
 	public void deleteUser(User user) throws InexistentObjectException {
 		if (user != null && !user.getCpf().isEmpty()) {
 			User toBeDeleted = searchUser(user.getCpf());
@@ -40,6 +49,9 @@ public class ManagementUserService {
 		}
 	}
 	
+	/**
+	 * Buscando um usuário no repositório através do CPF.
+	 */
 	public User searchUser(String cpf) throws InexistentObjectException {
 		User user = repository.findByCpf(cpf);
 			if (user != null) {
@@ -49,6 +61,9 @@ public class ManagementUserService {
 			}
 	}
 	
+	/**
+	 * Atualizando um usuário do repositório.
+	 */
 	public void updateUser(User user, String cpf) throws InexistentObjectException {
 		User foundUser = searchUser(cpf);
 		foundUser.setCpf(user.getCpf());

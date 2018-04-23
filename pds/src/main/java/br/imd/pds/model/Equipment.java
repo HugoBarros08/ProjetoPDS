@@ -13,6 +13,9 @@ import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * Classe responsável por moldar Equipamento
+*/
 @Entity
 public class Equipment {
 	

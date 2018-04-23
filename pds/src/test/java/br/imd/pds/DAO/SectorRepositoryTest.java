@@ -5,7 +5,9 @@ import org.junit.Test;
 import br.imd.pds.model.Sector;
 import br.imd.pds.repository.SectorRepository;
 
-
+/**
+ * Classe responsável por realizar teste do Setor
+*/
 public class SectorRepositoryTest {
 	
 	SectorRepository repository;

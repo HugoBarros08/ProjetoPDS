@@ -13,6 +13,9 @@ import br.imd.pds.model.User;
 import br.imd.pds.repository.EquipmentRepository;
 import br.imd.pds.repository.UserRepository;
 
+/**
+ * Classe responsável por realizar teste do Equipamento
+*/
 public class EquipmentRepositoryTest {
 
 	EquipmentRepository repository;

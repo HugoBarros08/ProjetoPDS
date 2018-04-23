@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+/**
+ * Classe responsável por moldar Histórico de Equipamento
+*/
 @Entity
 public class EquipmentHistoric {
 	

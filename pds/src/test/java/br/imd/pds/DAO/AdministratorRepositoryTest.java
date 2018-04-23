@@ -5,7 +5,9 @@ import org.junit.Test;
 import br.imd.pds.model.Administrator;
 import br.imd.pds.repository.AdministratorRepository;
 
-
+/**
+ * Classe responsável por realizar teste do Administrador
+*/
 public class AdministratorRepositoryTest {
 	
 	AdministratorRepository repository;
