@@ -27,18 +27,18 @@ public class UserController {
 	/**
 	 * Exemplo populando o banco de dados em memória.
 	 */
-//	@PostConstruct
-//	public void init() throws ExistentObjectException {
-//		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
-//		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
-//		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
-//		
-//		try {
-//			managementUser.deleteUser(managementUser.searchUser("998877"));			
-//		} catch(InexistentObjectException e) {
-//			
-//		}
-//	}
+	@PostConstruct
+	public void init() throws ExistentObjectException {
+		managementUser.insertUser(new User("123123", "Joao", "joao@gmail.com"));
+		managementUser.insertUser(new User("456789", "Maria", "maria@gmail.com"));
+		managementUser.insertUser(new User("998877", "Ricardo", "ricardo@gmail.com"));
+		
+		try {
+			managementUser.deleteUser(managementUser.searchUser("998877"));			
+		} catch(InexistentObjectException e) {
+			
+		}
+	}
 	
 	/**
 	 * Return user with the given id
