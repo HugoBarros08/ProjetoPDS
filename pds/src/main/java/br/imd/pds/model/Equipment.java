@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -34,6 +35,9 @@ public class Equipment {
 	
 	@Column(name="last_maintenance")
 	private Date lastMaintenance;
+	
+	@Column(name="next_maintenance")
+	private Date nextMaintenance;
 	
 	@Column(name="status")
 	private String status;
@@ -64,9 +68,9 @@ public class Equipment {
 		this.registrationDate = registration;
 		this.lastMaintenance = lastMaintenance;
 		this.status = green;
-		
 		this.characteristics = new ArrayList<EquipmentCharacteristic>();
 		this.historic = new ArrayList<EquipmentHistoric>();
+		this.scheduling();
 	}
 
 	public Equipment(String serial, String tumber, Date product, Date lastMaintenance, ArrayList<EquipmentCharacteristic> characteristics, ArrayList<EquipmentHistoric> historic)
@@ -77,6 +81,8 @@ public class Equipment {
 		this.lastMaintenance = lastMaintenance;
 		this.characteristics = characteristics;
 		this.historic = historic;
+		
+		this.scheduling();
 	}
 	
 	public long getId()
@@ -129,6 +135,14 @@ public class Equipment {
 		this.lastMaintenance = lastMaintenance;
 	}
 	
+	public Date getNextMaintenance() {
+		return nextMaintenance;
+	}
+
+	public void setNextMaintenance(Date nextMaintenance) {
+		this.nextMaintenance = nextMaintenance;
+	}
+	
 	public String getStatus()
 	{
 		return this.status;
@@ -167,5 +181,56 @@ public class Equipment {
 
 	public void setSector(Sector sector) {
 		this.sector = sector;
+	}
+	
+	/**
+	 * Agenda a próxima manutenção do equipamento
+	 * @param
+	 * @return
+	 */
+	public void scheduling() {
+		int year = Integer.parseInt(this.getTumberNumber().substring(0,3));
+		Date lastMaintenance = this.getLastMaintenance();
+		
+		if(year >= 2008 && year <= 2010) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(lastMaintenance);
+			calendar.add(Calendar.MONTH, 2);
+			this.setNextMaintenance(calendar.getTime());
+		} else if(year == 2011 || year == 2012) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(lastMaintenance);
+			calendar.add(Calendar.MONTH, 4);
+			this.setNextMaintenance(calendar.getTime());			
+		} else if(year == 2013 || year == 2014) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(lastMaintenance);
+			calendar.add(Calendar.MONTH, 6);
+			this.setNextMaintenance(calendar.getTime());			
+		} else if(year == 2015 || year == 2016) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(lastMaintenance);
+			calendar.add(Calendar.MONTH, 8);
+			this.setNextMaintenance(calendar.getTime());			
+		} else if(year == 2017 || year == 2018) {
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(lastMaintenance);
+			calendar.add(Calendar.MONTH, 10);
+			this.setNextMaintenance(calendar.getTime());			
+		}
+	}
+	
+	/**
+	 * Agenda a próxima manutenção do equipamento
+	 * @param numberOfMonths
+	 * @return
+	 */
+	public void scheduling(int numberOfMonths) {
+		Date lastMaintenance = this.getLastMaintenance();
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(lastMaintenance);
+		calendar.add(Calendar.MONTH, numberOfMonths);
+		this.setNextMaintenance(calendar.getTime());
 	}
 }
