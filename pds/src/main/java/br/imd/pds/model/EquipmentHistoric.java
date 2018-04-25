@@ -27,7 +27,7 @@ public class EquipmentHistoric {
 	
 	@ManyToOne
 	@JoinColumn(name="equipment_id")
-	Equipment equipment;
+	private Equipment equipment;
 
 	public EquipmentHistoric() {
 	}

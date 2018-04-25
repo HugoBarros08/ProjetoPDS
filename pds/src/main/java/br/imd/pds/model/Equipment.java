@@ -7,10 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import br.imd.pds.model.*;
 
 /**
  * Classe responsável por moldar Equipamento
@@ -44,12 +49,10 @@ public class Equipment {
 	@JoinColumn(name="sector_id")
 	private Sector sector;
 	
-//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentCharacteristc.class)
-	@Transient
+	@OneToMany
 	private ArrayList<EquipmentCharacteristic> characteristics;
 	
-//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentHistoric.class)
-	@Transient
+	@OneToMany
 	private ArrayList<EquipmentHistoric> historic;
 	
 	public static final String green = "green";

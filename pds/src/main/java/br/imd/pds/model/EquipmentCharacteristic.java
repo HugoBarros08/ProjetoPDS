@@ -25,7 +25,7 @@ public class EquipmentCharacteristic {
 	
 	@ManyToOne
 	@JoinColumn(name="equipment_id")
-	Equipment equipment;
+	private Equipment equipment;
 	
 	public EquipmentCharacteristic() {
 	}
