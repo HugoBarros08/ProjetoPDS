@@ -1,0 +1,2 @@
+INSERT INTO USER (USER_ID, CPF, EMAIL, FLAG_USER, NAME, PASSWORD, USERNAME, SECTOR_ID)
+VALUES (1, '123123', 'admin@admin', 1, 'Admin', '$2a$04$ko3qzzvLUjvtVa5/Kk5Zx.Ffx1b7Ap556NfGSTVd8pv/8wgfk7J1i', 'admin', NULL);

@@ -3,6 +3,9 @@ package br.imd.pds.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import br.imd.pds.helpers.ExistentObjectException;
@@ -14,7 +17,7 @@ import br.imd.pds.repository.UserRepository;
  * Classe responsável por gerenciar Usuários
  */
 @Service
-public class ManagementUserService {
+public class ManagementUserService implements UserDetailsService {
 	
 	@Autowired
 	private UserRepository repository;
@@ -69,5 +72,16 @@ public class ManagementUserService {
 		foundUser.setCpf(user.getCpf());
 		foundUser.setEmail(user.getEmail());
 		foundUser.setName(user.getName());
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = repository.findByUsername(username);
+		
+		if(user == null) {
+			throw new UsernameNotFoundException(username);
+		}
+		
+		return user;
 	}
 }

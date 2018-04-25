@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SNMP</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+   <form th:action="@{/login}" method="post">
+        <h1>Login</h1>
+
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <div>
+            <input name="username" type="text" class="form-control" placeholder="Username" required="" />
+        </div>
+        <div>
+            <input name="password" type="password" class="form-control" placeholder="Password" required="" />
+        </div>
+        <div>
+            <button type="submit" style="width: 100%;" class="btn btn-default submit" href="index.html">Log in</button>
+        </div>
+       
+    </form>
+</body>
+</html>

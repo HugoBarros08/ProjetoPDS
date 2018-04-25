@@ -1,15 +1,16 @@
 package br.imd.pds.model;
 
-import java.util.Set;
+import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
@@ -18,12 +19,14 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Classe responsável por moldar Usuários
 */
 @Entity
-public class User {
+public class User implements UserDetails {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -45,7 +48,7 @@ public class User {
 	private String username;
 	
 	@NotEmpty
-	@Length(min = 8, message = "*Your password must have at least 8 characters")
+	@Length(min = 8, message = "*Sua senha deve conter no mínimo 8 caracteres")
 	@Column(name = "password")
 	private String password;
 	
@@ -61,15 +64,14 @@ public class User {
 	@Column(name = "flag_user")
 	private boolean flag;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<UserRole> roles;
+	@ManyToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL, mappedBy="users")
+	private List<Role> roles;
 
 	public User() {
 		
 	}
 	
-	public User(String cpf, String name, String username, String password, String email, Sector sector, Set<UserRole> roles) {
+	public User(String cpf, String name, String username, String password, String email, Sector sector, List<Role> roles) {
 		super();
 		this.cpf = cpf;
 		this.name = name;
@@ -158,12 +160,37 @@ public class User {
 		this.password = password;
 	}
 
-	public Set<UserRole> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<UserRole> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.roles;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return this.flag;
 	}
 
 }
