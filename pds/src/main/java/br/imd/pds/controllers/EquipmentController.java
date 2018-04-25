@@ -59,7 +59,7 @@ public class EquipmentController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public String newEquipment(@ModelAttribute Equipment equipment) {
 		try {
-			managementEquipment.insertEquipment(equipment);
+			managementEquipment.insertEquipment(equipment, true);
 		} catch (ExistentObjectException e) {
 			e.printStackTrace();
 		}

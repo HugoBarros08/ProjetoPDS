@@ -65,11 +65,6 @@ public class Sector {
 		return name;
 	}
 	
-	public void notifyUsers() 
-	{
-		
-	}
-
 	public ArrayList<Equipment> getEquipments(){
 		return equipments;
 	}
