@@ -18,6 +18,9 @@ public class ManagementSectorService {
 	@Autowired
 	private SectorRepository repository;
 	
+	@Autowired
+	private NotificationEmailService emailSender;
+	
 	public List<Sector> listSector() {
 		return repository.findAll();
 	}
@@ -78,17 +81,10 @@ public class ManagementSectorService {
 		}
 	}
 	
-	/**
-	 * Agenda data de manutenção
-	 */
-	public void schedule() {
+	public void notifyUsers(String sectorName) throws InexistentObjectException
+	{
+		Sector sector = searchSector(sectorName);
 		
-	}
-	
-	/**
-	 * Atualiza data de manutenção
-	 */
-	public void reschedule() {
-		
+		emailSender.sendNotification("", new equipment(,true));
 	}
 }

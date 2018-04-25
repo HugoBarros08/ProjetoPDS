@@ -11,11 +11,15 @@ import br.imd.pds.model.Equipment;
 public class NotificationEmailService{
 	
 	@Autowired
-    public JavaMailSender emailSender;
+    private JavaMailSender emailSender;
 	
 	public static final String subject = "Lembrete de manutenção";
  
-    public void sendSimpleMessage(String to, Equipment equipment) {
+	public NotificationEmailService(JavaMailSender emailSender) {
+		this.emailSender = emailSender;
+	}
+	
+    public void sendNotification(String to, Equipment equipment) {
         SimpleMailMessage message = new SimpleMailMessage();
         String date = new SimpleDateFormat("EEE, dd MMM yyyy").format(equipment.getNextMaintenance());
         String text = "A máquina portadora do número de série "
