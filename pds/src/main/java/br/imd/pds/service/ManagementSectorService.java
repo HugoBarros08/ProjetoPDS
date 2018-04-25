@@ -84,7 +84,5 @@ public class ManagementSectorService {
 	public void notifyUsers(String sectorName) throws InexistentObjectException
 	{
 		Sector sector = searchSector(sectorName);
-		
-		emailSender.sendNotification("", new equipment(,true));
 	}
 }
