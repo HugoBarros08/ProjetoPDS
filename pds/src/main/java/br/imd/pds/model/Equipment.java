@@ -49,10 +49,12 @@ public class Equipment {
 	@JoinColumn(name="sector_id")
 	private Sector sector;
 	
-	@OneToMany
+//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentCharacteristc.class)
+	@Transient
 	private ArrayList<EquipmentCharacteristic> characteristics;
 	
-	@OneToMany
+//	@OneToMany(mappedBy = “equipment”, targetEntity = EquipmentHistoric.class)
+	@Transient
 	private ArrayList<EquipmentHistoric> historic;
 	
 	public static final String green = "green";

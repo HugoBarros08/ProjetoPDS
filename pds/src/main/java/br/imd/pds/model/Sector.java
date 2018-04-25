@@ -21,10 +21,12 @@ public class Sector {
 	@Column(name="name")
 	private String name;
 	
-	@OneToMany
+//	@OneToMany(mappedBy = “sector”, targetEntity = Equipment.class)
+	@Transient
 	private ArrayList<Equipment> equipments;
 	
-	@OneToMany
+//	@OneToMany(mappedBy = “sector”, targetEntity = User.class)
+	@Transient
 	private ArrayList<User> leaders;
 	
 	public Sector() {
