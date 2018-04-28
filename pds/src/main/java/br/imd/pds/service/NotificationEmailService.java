@@ -5,9 +5,11 @@ import java.text.SimpleDateFormat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.stereotype.Service;
 
 import br.imd.pds.model.Equipment;
 
+@Service
 public class NotificationEmailService{
 	
 	@Autowired

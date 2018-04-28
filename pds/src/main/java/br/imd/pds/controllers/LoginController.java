@@ -9,14 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = { "/"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
 	public ModelAndView welcomePage() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("welcomePage");
 		return model;
 	}
 	
-	@RequestMapping(value = { "/homePage"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/homePage"}, method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView model = new ModelAndView();
 		model.setViewName("homePage");
@@ -33,7 +33,7 @@ public class LoginController {
 		}
 
 		if (logout != null) {
-			model.addObject("message", "Logged out from JournalDEV successfully.");
+			model.addObject("message", "Logged out from SNMP successfully.");
 		}
 		model.setViewName("login");
 		return model;

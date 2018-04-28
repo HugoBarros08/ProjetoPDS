@@ -81,8 +81,8 @@ public class ManagementSectorService {
 		}
 	}
 	
-	public void notifyUsers(String sectorName) throws InexistentObjectException
-	{
-		Sector sector = searchSector(sectorName);
-	}
+//	public void notifyUsers(String sectorName) throws InexistentObjectException
+//	{
+//		Sector sector = searchSector(sectorName);
+//	}
 }

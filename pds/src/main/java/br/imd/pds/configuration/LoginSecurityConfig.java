@@ -36,19 +36,19 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/webjars/**", "/js/**", "/css/**", "/img/**").permitAll()
 			.anyRequest().authenticated()
 			.and()
-		.formLogin()
+			.formLogin()
 			.loginPage("/login")
 			.usernameParameter("username")
 			.passwordParameter("password")
 			.permitAll()
 			.and()
-		.logout()
+			.logout()
 			.permitAll();
 	}
 	
 	/**
-	 * Password Encoder that converts the
-	 * string password into hash.
+	 * Password Encoder that converts the string password into hash.
+	 * 
 	 * @return PasswordEncoder instance.
 	 */
 	@Bean
@@ -57,8 +57,8 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * Authentication Provider responsible to
-	 * fetch users and manage password encoder.
+	 * Authentication Provider responsible to fetch users and manage password encoder.
+	 * 
 	 * @return DaoAuthenticationProvider instance.
 	 */
 	@Bean

@@ -13,7 +13,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Import(value = {LoginSecurityConfig.class})
 public class LoginApplicationConfig {
 
-	
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
