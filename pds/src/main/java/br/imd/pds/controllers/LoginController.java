@@ -10,16 +10,30 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 
 	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
-	public ModelAndView welcomePage() {
+	public ModelAndView welcomePageAdmin() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("welcomePage");
+		model.setViewName("welcomePageAdmin");
 		return model;
 	}
 	
-	@RequestMapping(value = {"/homePage"}, method = RequestMethod.GET)
-	public ModelAndView homePage() {
+	@RequestMapping(value = {"/"}, method = RequestMethod.GET)
+	public ModelAndView welcomePageUser() {
 		ModelAndView model = new ModelAndView();
-		model.setViewName("homePage");
+		model.setViewName("welcomePageUser");
+		return model;
+	}
+	
+	@RequestMapping(value = {"/homePageAdmin"}, method = RequestMethod.GET)
+	public ModelAndView homePageAdmin() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("homePageAdmin");
+		return model;
+	}
+	
+	@RequestMapping(value = {"/homePageUser"}, method = RequestMethod.GET)
+	public ModelAndView homePageUser() {
+		ModelAndView model = new ModelAndView();
+		model.setViewName("homePageUser");
 		return model;
 	}
 	

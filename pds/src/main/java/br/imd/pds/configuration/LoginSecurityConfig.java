@@ -32,18 +32,19 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		http.headers().frameOptions().disable();
 		
-		http.authorizeRequests()
-			.antMatchers("/webjars/**", "/js/**", "/css/**", "/img/**").permitAll()
-			.anyRequest().authenticated()
-			.and()
+		http
+			.authorizeRequests()
+				.antMatchers("/webjars/**", "/js/**", "/css/**", "/img/**").permitAll()
+				.anyRequest().authenticated()
+				.and()
 			.formLogin()
-			.loginPage("/login")
-			.usernameParameter("username")
-			.passwordParameter("password")
-			.permitAll()
-			.and()
+				.loginPage("/login")
+				.usernameParameter("username")
+				.passwordParameter("password")
+				.permitAll()
+				.and()
 			.logout()
-			.permitAll();
+				.permitAll();
 	}
 	
 	/**
