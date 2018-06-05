@@ -1,57 +1,58 @@
 <!DOCTYPE HTML>
 <html lang="pt-br"
 	xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>SNMP</title>
-    <link rel="stylesheet" th:href="@{../css/loginStyle.css}" href="../css/loginStyle.css"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-	<div class="headerBackgroud">
-		<header>
-		<img src="../images/logo-ufrn@2x.png" alt="UFRN header logo" align="left"> 	
-		<h1 class="headerFont">UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE</h1>
-		</header>
-	</div>
-	
-	<div class="middle">
-   		<form th:action="@{/login}" method="post">
-        	<div class="imgContainer">
-				<img src="../images/logo-snmp@2x.png" alt="SNMP form logo">
-			</div>
+	<head>
+	    <title>SNMP</title>
+	    <link rel="stylesheet" th:href="@{../css/loginStyle.css}" href="../css/loginStyle.css"/>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
+	<body>
+		<div class="headerContainer divImgPadding">
+			<header>
+			<img class="imgPadding" src="../images/logo-ufrn@2x.png" alt="UFRN header logo" align="left">
+			<h1 class="headerFont">UNIVERSIDADE FEDERAL DO RIO GRANDE DO NORTE</h1>
+			</header>
+		</div>
+		
+		<div class="middleScreenContainer">
+	   		<form th:action="@{/login}" method="post">
+	        	<div class="imgContainer">
+					<img src="../images/logo-snmp@2x.png" alt="SNMP form logo">
+				</div>
 
-        	<div th:if="${param.error}">
-            	Invalid username and password.
-        	</div>
-        	
-	        <div th:if="${param.logout}">
-	            You have been logged out.
-	        </div>
-	
-			<div class="formContainer">
-				<div>
-					<label for="username">Nome de usu&aacute;rio:</label><br/>
-    				<input class="inputWidth" type="text" placeholder="Digite seu login" name="username" required><br/>
-	        
-	        		<label for="psw">Senha:</label><br/>
-    				<input class="inputWidth" type="password" placeholder="Digite sua senha" name="psw" required><br/>
+	        	<div class="textCenter" th:if="${param.error}">
+	            	Credenciais inválidas.
 	        	</div>
 	        	
-	        	<div class="textRight">
-    				<a class="textNoUnderline" href="#">Recuperar senha</a><br/>
-        		</div>
-        		
-        		<div class="textCenter">
-        			<button class="button" type="submit" href="index.html">ENTRAR</button><br/>
-	    			<a class="textNoUnderline" href="#">Cadastrar-se</a><br/>
-        		</div>
-  			</div>
-		</form>			
-	</div>
-	
-	<footer class="footerBackgroud">
-		<img src="../images/logo-sinfo@2x.png" alt="SINFO header logo" align="left"> 	
-		<h1 class="footerFont"> Copyright &copy; 2006-2018 - Superintend&ecirc;ncia de Inform&aacute;tica - Universidade Federal do Rio Grande do Norte | (84) 3215-3148 </h1>
-	</footer>
-</body>
+		        <div class="textCenter" th:if="${param.logout}">
+		            Você foi desconectado.
+		        </div>
+		
+				<div class="formContainer">
+					<div class="divMarginBottom">
+						<label class="labelBoxModel" for="username">Nome de usu&aacute;rio:</label><br/>
+	    				<input class="inputBoxModel" type="text" placeholder="Digite seu login" name="username" required="Por"><br/>
+		        	</div>
+		        		
+		        	<div class="divMarginBottom">
+		        		<label class="labelBoxModel" for="psw">Senha:</label><br/>
+	    				<input class="inputBoxModel" type="password" placeholder="Digite sua senha" name="psw" required><br/>
+	    				<p class="textRight"><a href="#">Recuperar senha</a><br/></p>
+		        	</div>
+		        	       		
+	        		<div class="textCenter">
+	        			<button class="button letterSpacing" type="submit" href="index.html">ENTRAR</button><br/>
+		    			<a class="linkBoxModel" href="#">Cadastrar-se</a><br/>
+	        		</div>
+	  			</div>
+			</form>			
+		</div>
+		
+		<div class="footerContainer divImgPadding">
+			<footer>
+				<img class="imgPadding" src="../images/logo-sinfo@2x.png" alt="SINFO header logo" align="left"> 	
+				<h1 class="footerFont">Copyright &copy; 2006-2018 - Superintend&ecirc;ncia de Inform&aacute;tica - Universidade Federal do Rio Grande do Norte | (84) 3215-3148 </h1>
+			</footer>
+		</div>
+	</body>
 </html>
