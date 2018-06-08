@@ -9,6 +9,7 @@ body {
 	width: 100%;
 	font-family: "Open Sans",Tahoma,"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 13px;
+	overflow: auto;
 }
 
 .headerFont {
@@ -133,10 +134,11 @@ a:hover {
 .footerContainer {
 	width: 100%; 
 	min-height: 35px;
+	background-color: #EFF3F5;
 	border-top-style: solid;
 	border-top-color: #A5B3C9;
 	border-top-width: 100%;
 	border-top-height: 4px;
-	position: absolute;
-	bottom: 0%;
+	position: fixed;
+	bottom: 0;
 }
